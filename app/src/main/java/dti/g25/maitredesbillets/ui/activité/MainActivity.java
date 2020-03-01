@@ -1,8 +1,10 @@
-package dti.g25.maitredesbillets;
+package dti.g25.maitredesbillets.ui.activité;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import dti.g25.maitredesbillets.R;
 
 public class MainActivity extends AppCompatActivity {
 
