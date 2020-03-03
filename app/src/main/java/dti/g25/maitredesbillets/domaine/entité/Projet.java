@@ -1,5 +1,10 @@
 package dti.g25.maitredesbillets.domaine.entité;
 
+import android.os.Build;
+import androidx.annotation.RequiresApi;
+
+import java.util.Objects;
+
 public class Projet {
 
     private String titre;
@@ -85,4 +90,19 @@ public class Projet {
     public void setChefProjet(String chefProjet) {
         this.chefProjet = chefProjet;
     }
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Projet projet = (Projet) o;
+        return id == projet.id &&
+                column == projet.column &&
+                Objects.equals(titre, projet.titre) &&
+                Objects.equals(description, projet.description) &&
+                Objects.equals(userCourriel, projet.userCourriel) &&
+                Objects.equals(chefProjet, projet.chefProjet);
+    }
+
 }

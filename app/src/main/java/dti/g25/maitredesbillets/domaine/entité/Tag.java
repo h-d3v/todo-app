@@ -1,5 +1,10 @@
 package dti.g25.maitredesbillets.domaine.entité;
 
+import android.os.Build;
+import androidx.annotation.RequiresApi;
+
+import java.util.Objects;
+
 public class Tag {
 
     private String titre;
@@ -47,4 +52,16 @@ public class Tag {
     public void setTagId(int tagId) {
         this.tagId = tagId;
     }
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Tag tag = (Tag) o;
+        return tagId == tag.tagId &&
+                Objects.equals(titre, tag.titre) &&
+                Objects.equals(couleur, tag.couleur);
+    }
+
 }
