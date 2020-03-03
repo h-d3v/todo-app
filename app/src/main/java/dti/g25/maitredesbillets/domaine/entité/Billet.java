@@ -1,6 +1,7 @@
 package dti.g25.maitredesbillets.domaine.entité;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Billet {
     private String titre;
@@ -89,5 +90,21 @@ public class Billet {
     public void setTags(ArrayList<String> tags) {
         this.tags = tags;
     }
+
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Billet billet = (Billet) o;
+        return enCours == billet.enCours &&
+                ticketId == billet.ticketId &&
+                projetId == billet.projetId &&
+                titre.equals(billet.titre) &&
+                description.equals(billet.description);
+    }
+
+
 
 }
