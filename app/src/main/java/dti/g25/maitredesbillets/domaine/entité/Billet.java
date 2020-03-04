@@ -8,7 +8,7 @@ public class Billet {
     private boolean enCours;
     private int ticketId;
     private int projetId;
-    private ArrayList<String> tags;
+    private ArrayList<tags> tags;
 
 
     //Constructeur vide
@@ -27,6 +27,7 @@ public class Billet {
         this.enCours = true; //Un tickets sera toujours en cours juqu'à tant qu'il soit fermé
         this.ticketId = ticketId;
         this.projetId = projetId;
+        this.tags = new ArrayList<>;
         // Il n'est pas impératif que le billet aie des tags
     }
 
@@ -90,4 +91,25 @@ public class Billet {
         this.tags = tags;
     }
 
+    //méthode
+
+    public void fermer(){
+        this.enCours = false;
+    }
+
+    public void ouvrir(){
+        this.enCours = true;
+    }
+
+    public void ajouterTag(Tag tag){
+        tags.add(tag);
+    }
+
+    public void retirerTag(Tag tag){
+        for(tag leTag : tags­){
+            if(leTag.getTagId() == tag.getTagId){
+                tags.remove(leTag);
+            }
+        }
+    }
 }
