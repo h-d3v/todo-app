@@ -9,7 +9,7 @@ public class Billet {
     private boolean enCours;
     private int ticketId;
     private int projetId;
-    private ArrayList<String> tags;
+    private ArrayList<Tag> tags;
 
 
     //Constructeur vide
@@ -32,7 +32,7 @@ public class Billet {
     }
 
     //Constructeur complet
-    public Billet(String titre, String description, boolean enCours, int ticketId, int projetId, ArrayList<String> tags) {
+    public Billet(String titre, String description, boolean enCours, int ticketId, int projetId, ArrayList<Tag> tags) {
         this.titre = titre;
         this.description = description;
         this.enCours = enCours;
@@ -62,7 +62,7 @@ public class Billet {
         return projetId;
     }
 
-    public ArrayList<String> getTags() {
+    public ArrayList<Tag> getTags() {
         return tags;
     }
 
@@ -87,7 +87,7 @@ public class Billet {
         this.projetId = projetId;
     }
 
-    public void setTags(ArrayList<String> tags) {
+    public void setTags(ArrayList<Tag> tags) {
         this.tags = tags;
     }
 
