@@ -1,10 +1,7 @@
 package dti.g25.maitredesbillets.domaine.interacteurs;
-import dti.g25.maitredesbillets.domaine.entité.Billet;
 import dti.g25.maitredesbillets.domaine.entité.Couleur;
 import dti.g25.maitredesbillets.domaine.entité.Tag;
 
-import java.sql.Connection;
-import java.util.ArrayList;
 
 public class GererTag  {
     private IPersisteurTag persisteurTag;
