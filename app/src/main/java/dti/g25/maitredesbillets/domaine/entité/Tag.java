@@ -8,7 +8,7 @@ import java.util.Objects;
 public class Tag {
 
     private String titre;
-    private String couleur;
+    private Couleur couleur;
     private int tagId;
 
     //Constructeur vide
@@ -16,12 +16,12 @@ public class Tag {
 
     public Tag() {
         this.titre = "";
-        this.couleur = "";
+        this.couleur = null;
         this.tagId = 1;
     }
 
     //Constructeur complet
-    public Tag(String titre, String couleur, int tagId) {
+    public Tag(String titre, Couleur couleur, int tagId) {
         this.titre = titre;
         this.couleur = couleur;
         this.tagId = tagId;
@@ -32,7 +32,7 @@ public class Tag {
         return titre;
     }
 
-    public String getCouleur() {
+    public Couleur getCouleur() {
         return couleur;
     }
 
@@ -45,7 +45,7 @@ public class Tag {
         this.titre = titre;
     }
 
-    public void setCouleur(String couleur) {
+    public void setCouleur(Couleur couleur) {
         this.couleur = couleur;
     }
 

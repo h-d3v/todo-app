@@ -1,5 +1,6 @@
 package dti.g25.maitredesbillets.domain.entité;
 
+import dti.g25.maitredesbillets.domaine.entité.Couleur;
 import org.junit.Test;
 
 import dti.g25.maitredesbillets.domaine.entité.Tag;
@@ -8,11 +9,11 @@ import static org.junit.Assert.*;
 
 public class TagTest {
 
-    Tag tagDeTest = new Tag("le Titre", "Mauve", 1);
+    Tag tagDeTest = new Tag("le Titre", Couleur.BLEU, 1);
 
     @Test
     public void creation_fonctionne() {
-        assertEquals(tagDeTest, new Tag("le Titre", "Mauve", 1));
+        assertEquals(tagDeTest, new Tag("le Titre", Couleur.BLEU, 1));
     }
 
     @Test
@@ -28,12 +29,12 @@ public class TagTest {
 
     @Test
     public void getCouleur_fonctionne() {
-        assertEquals(tagDeTest.getCouleur(), "Mauve" );
+        assertEquals(tagDeTest.getCouleur(), Couleur.BLEU );
     }
 
     @Test
     public void setCouleur_fonctionne() {
-        tagDeTest.setTitre("Blanco");
-        assertEquals(tagDeTest.getCouleur(), "Blanco" );
+        tagDeTest.setCouleur(Couleur.BLEU_CIEL);
+        assertEquals(tagDeTest.getCouleur(), Couleur.BLEU_CIEL );
     }
 }
