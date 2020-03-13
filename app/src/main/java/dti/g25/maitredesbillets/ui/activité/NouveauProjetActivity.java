@@ -18,6 +18,10 @@ public class NouveauProjetActivity extends AppCompatActivity {
 
     private PresenteurNewProjet _presenteur;
 
+    /**
+     * Initialise la vue ainsi que le présenteur pour cette activité
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +38,9 @@ public class NouveauProjetActivity extends AppCompatActivity {
         ft.commit();
     }
 
+    /**
+     * Lorsqu'elle démare, on initialise le nouveau titre du projet
+     */
     @Override
     protected void onStart(){
         super.onStart();

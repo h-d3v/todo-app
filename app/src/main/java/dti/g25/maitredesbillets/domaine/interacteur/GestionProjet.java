@@ -8,11 +8,23 @@ import dti.g25.maitredesbillets.domaine.entité.Projet;
 public class GestionProjet implements IGestionProjet {
 
 
+    /**
+     * Creer un projet
+     * @param titre titre du projet
+     * @param id id du projet
+     * @return un Projet
+     */
     @Override
     public Projet creerProjet(String titre, int id) {
         return new Projet(titre, id);
     }
 
+    /**
+     * Rennomer un projet existant
+     * @param unProjet le projet a rennomer
+     * @param newTitre le nouveau titre de ce projet
+     * @throws Exception si le projet est null ou son nouveau titre vide
+     */
     @Override
     public void rennomerProjet(Projet unProjet, String newTitre) throws Exception {
         if (unProjet==null||newTitre.equals("")){
@@ -22,6 +34,13 @@ public class GestionProjet implements IGestionProjet {
         unProjet.setTitre(newTitre);
     }
 
+    /**
+     * Ajouter un billet a un projet existant
+     * @param unProjet le projet
+     * @param unBillet le billet
+     * @throws Exception si le projet ou le billet sont null
+     */
+    @Override
     public void addBillet(Projet unProjet, Billet unBillet) throws Exception {
         if (unProjet==null||unBillet==null){
             throw new Exception("Le projet ne peut pas etre null ni \n" +
@@ -32,6 +51,13 @@ public class GestionProjet implements IGestionProjet {
         unProjet.setBillets(listeBilletProjet);
     }
 
+    /**
+     * Supprime un billet dans un projet
+     * @param unProjet le projet
+     * @param unBillet le billet
+     * @throws Exception si le projet ou le billet sont null
+     */
+    @Override
     public void delBillet(Projet unProjet, Billet unBillet) throws Exception {
         if (unProjet==null||unBillet==null){
             throw new Exception("Le projet ne peut pas etre null ni \n" +
@@ -41,7 +67,5 @@ public class GestionProjet implements IGestionProjet {
         listeBilletProjet.remove(unBillet);
         unProjet.setBillets(listeBilletProjet);
     }
-
-
 
 }

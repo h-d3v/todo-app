@@ -15,6 +15,11 @@ public class MainActivity extends AppCompatActivity {
 
     PresenteurPrincipal _presenteur;
 
+    /**
+     * Initialise la vue pour l'activité principale ansi que le présenteur
+     * pour la vue
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +34,11 @@ public class MainActivity extends AppCompatActivity {
         ft.commit();
     }
 
+    /**
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         _presenteur.onActivityResult(requestCode, resultCode, data);

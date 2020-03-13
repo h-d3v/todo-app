@@ -3,15 +3,16 @@ package dti.g25.maitredesbillets.domaine.entité;
 import java.util.ArrayList;
 
 public class Billet {
-    private String titre;
-    private String description;
+    private String titre;  private String description;
     private boolean enCours;
     private int ticketId;
     private int projetId;
     private ArrayList<Tag> tags;
 
 
-    //Constructeur vide
+    /**
+     *
+     */
     public Billet() {
         this.titre = "";
         this.description = "";
