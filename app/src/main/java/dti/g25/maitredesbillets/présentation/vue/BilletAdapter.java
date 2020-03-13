@@ -3,6 +3,7 @@ package dti.g25.maitredesbillets.présentation.vue;
 import dti.g25.maitredesbillets.R;
 import dti.g25.maitredesbillets.présentation.ContratVuePrésenteurVoirBillet;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +29,7 @@ public class BilletAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         return new RecyclerView.ViewHolder(racine){};
     }
 
+    @SuppressLint("WrongViewCast")
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
         ((ImageButton)holder.itemView.findViewById(R.id.btnVoirDétail)).setOnClickListener(new View.OnClickListener(){

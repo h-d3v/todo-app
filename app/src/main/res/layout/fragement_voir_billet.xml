@@ -14,7 +14,8 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvBillets"
         android:layout_width="match_parent"
-        android:layout_height="595dp">
+        android:layout_height="501dp"
+        android:background="#081018">
 
     </androidx.recyclerview.widget.RecyclerView>
 

@@ -1,7 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#081018">
+    android:layout_height="wrap_content"
+    android:background="#081018"
+    android:orientation="horizontal">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <android.widget.TextView
+        android:id="@+id/tvProjet"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_weight="5"
+        android:background="#081018"
+        android:padding="0dp"
+        android:paddingStart="50dp"
+        android:paddingLeft="100dp"
+        android:paddingTop="100dp"
+        android:paddingBottom="50dp"
+        android:textColor="#BDA5DF"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        tools:ignore="RtlSymmetry" />
+
+    <ImageButton
+        android:id="@+id/btnAcceder"
+        android:layout_width="93dp"
+        android:layout_height="44dp"
+        android:layout_weight="1"
+        android:background="#49544A"
+        android:contentDescription="TODO"
+        app:srcCompat="@drawable/ic_arrow_forward_black_24dp"
+        tools:ignore="VectorDrawableCompat" />
+
+</LinearLayout>

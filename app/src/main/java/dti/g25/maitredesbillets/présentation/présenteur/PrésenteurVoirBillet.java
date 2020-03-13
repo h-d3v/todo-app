@@ -2,10 +2,9 @@ package dti.g25.maitredesbillets.présentation.présenteur;
 
 import android.app.Activity;
 import android.content.Intent;
-
 import dti.g25.maitredesbillets.domaine.entité.Billet;
 import dti.g25.maitredesbillets.présentation.ContratVuePrésenteurVoirBillet;
-import dti.g25.maitredesbillets.présentation.modèle.ModèleBillet;
+import dti.g25.maitredesbillets.présentation.modèle.Modele;
 import dti.g25.maitredesbillets.ui.activité.créerBilletActivity;
 
 public class PrésenteurVoirBillet implements ContratVuePrésenteurVoirBillet.IPrésenteurVoirBillet{
@@ -14,10 +13,10 @@ public class PrésenteurVoirBillet implements ContratVuePrésenteurVoirBillet.IP
     public static final String EXTRA_POSITION="dti.g25.maitredesbillets.position";
 
     private ContratVuePrésenteurVoirBillet.IVueVoirBille vue;
-    private ModèleBillet modèle;
+    private Modele modèle;
     private Activity activité;
 
-    public PrésenteurVoirBillet(Activity activité, ContratVuePrésenteurVoirBillet.IVueVoirBille vue, ModèleBillet modèle) {
+    public PrésenteurVoirBillet(Activity activité, ContratVuePrésenteurVoirBillet.IVueVoirBille vue, Modele modèle) {
         this.activité=activité;
         this.modèle=modèle;
         this.vue=vue;
@@ -25,7 +24,8 @@ public class PrésenteurVoirBillet implements ContratVuePrésenteurVoirBillet.IP
 
     @Override
     public String getTitreBillet(int position) {
-        return modèle.get(position).getTitre();
+        return "" ;
+        // modèle.get(position).getTitre();
     }
 
     @Override
@@ -50,7 +50,8 @@ public class PrésenteurVoirBillet implements ContratVuePrésenteurVoirBillet.IP
 
     @Override
     public int getNombreItems() {
-        return modèle.size();
+       // return modèle.size();
+        return 0;
     }
 
     /*
