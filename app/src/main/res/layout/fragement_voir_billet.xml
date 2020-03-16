@@ -16,6 +16,8 @@
         android:layout_width="match_parent"
         android:layout_height="460dp">
 
+        android:layout_height="501dp"
+        android:background="#081018">
     </androidx.recyclerview.widget.RecyclerView>
 
     <Button
