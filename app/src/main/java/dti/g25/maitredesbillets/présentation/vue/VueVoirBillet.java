@@ -4,6 +4,7 @@ package dti.g25.maitredesbillets.présentation.vue;
 import dti.g25.maitredesbillets.présentation.ContratVuePrésenteurVoirBillet;
 import dti.g25.maitredesbillets.R;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -48,6 +49,17 @@ public class VueVoirBillet extends Fragment implements ContratVuePrésenteurVoir
     public void rafraîchir() {
         if(billetAdapter!=null)
             billetAdapter.notifyDataSetChanged();
+    }
+
+    /**
+     * Ce qu'il se passe quand on swipe un element du rv selon une direction
+     * @param viewHolder le viewHolder
+     * @param direction la dr
+     */
+    @Override
+    public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+        int position=viewHolder.getAdapterPosition();
+        présenteur.requêteSupprimerBillet(position);
     }
 
 

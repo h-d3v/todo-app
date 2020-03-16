@@ -25,6 +25,10 @@ public class Modèle {
         }
     }
 
+    public void supprimerBillet(int position){
+        billets.remove(billets.get(position));
+    }
+
     public ArrayList<Billet> getBillets(){
         return this.billets;
     }

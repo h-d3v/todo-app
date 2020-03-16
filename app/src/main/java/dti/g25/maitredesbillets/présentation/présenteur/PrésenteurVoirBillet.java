@@ -39,7 +39,7 @@ public class PrésenteurVoirBillet implements ContratVuePrésenteurVoirBillet.IP
 
     @Override
     public void requêteSupprimerBillet(int position) {
-
+        modèle.supprimerBillet(position);
     }
 
     @Override
@@ -82,4 +82,5 @@ public class PrésenteurVoirBillet implements ContratVuePrésenteurVoirBillet.IP
             vue.rafraîchir();
         }
     }
+
 }

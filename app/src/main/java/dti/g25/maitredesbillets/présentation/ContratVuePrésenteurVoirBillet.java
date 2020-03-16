@@ -1,11 +1,16 @@
 package dti.g25.maitredesbillets.présentation;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
 import dti.g25.maitredesbillets.domaine.entité.Billet;
 
 public interface ContratVuePrésenteurVoirBillet{
 
     public interface  IVueVoirBille{
         public void rafraîchir();
+
+        void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction);
     }
 
     public interface  IPrésenteurVoirBillet{
