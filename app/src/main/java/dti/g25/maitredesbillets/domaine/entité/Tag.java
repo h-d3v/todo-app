@@ -1,9 +1,14 @@
 package dti.g25.maitredesbillets.domaine.entité;
 
+import android.os.Build;
+import androidx.annotation.RequiresApi;
+
+import java.util.Objects;
+
 public class Tag {
 
     private String titre;
-    private String couleur;
+    private Couleur couleur;
     private int tagId;
 
     //Constructeur vide
@@ -11,12 +16,12 @@ public class Tag {
 
     public Tag() {
         this.titre = "";
-        this.couleur = "";
+        this.couleur = null;
         this.tagId = 1;
     }
 
     //Constructeur complet
-    public Tag(String titre, String couleur, int tagId) {
+    public Tag(String titre, Couleur couleur, int tagId) {
         this.titre = titre;
         this.couleur = couleur;
         this.tagId = tagId;
@@ -27,7 +32,7 @@ public class Tag {
         return titre;
     }
 
-    public String getCouleur() {
+    public Couleur getCouleur() {
         return couleur;
     }
 
@@ -40,11 +45,23 @@ public class Tag {
         this.titre = titre;
     }
 
-    public void setCouleur(String couleur) {
+    public void setCouleur(Couleur couleur) {
         this.couleur = couleur;
     }
 
     public void setTagId(int tagId) {
         this.tagId = tagId;
     }
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Tag tag = (Tag) o;
+        return tagId == tag.tagId &&
+                Objects.equals(titre, tag.titre) &&
+                Objects.equals(couleur, tag.couleur);
+    }
+
 }
