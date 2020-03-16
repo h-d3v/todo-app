@@ -7,13 +7,13 @@ import java.util.LinkedList;
 /**
  * TODO: 3/13/2020 la persistance
  */
-public class Modele{
+public class Modèle{
     private LinkedList<Projet> projets;
 
     /**
      * Constructeur du modele
      */
-    public Modele(){
+    public Modèle(){
         projets=new LinkedList<>();
     }
 

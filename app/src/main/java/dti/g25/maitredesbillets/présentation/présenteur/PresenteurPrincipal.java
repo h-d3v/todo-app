@@ -6,7 +6,7 @@ import android.content.Intent;
 import dti.g25.maitredesbillets.domaine.entité.Projet;
 import dti.g25.maitredesbillets.domaine.interacteur.GestionProjet;
 import dti.g25.maitredesbillets.présentation.ContratVuePresenteurPrincipal;
-import dti.g25.maitredesbillets.présentation.modèle.Modele;
+import dti.g25.maitredesbillets.présentation.modèle.Modèle;
 import dti.g25.maitredesbillets.ui.activité.NouveauProjetActivity;
 
 public  class PresenteurPrincipal implements ContratVuePresenteurPrincipal.IPresenteurPrincipal {
@@ -14,7 +14,7 @@ public  class PresenteurPrincipal implements ContratVuePresenteurPrincipal.IPres
     public static final int NOUVEAU_PROJET=54;
 
     private ContratVuePresenteurPrincipal.IVuePrincipale _vue;
-    private Modele _modele;
+    private Modèle _modele;
     private Activity _activite;
 
     /**
@@ -23,7 +23,7 @@ public  class PresenteurPrincipal implements ContratVuePresenteurPrincipal.IPres
      * @param vue La vue qui est relié au présenteur, qui sera la vue principale
      * @param modele le modele du MVP
      */
-    public PresenteurPrincipal(Activity activite, ContratVuePresenteurPrincipal.IVuePrincipale vue, Modele modele) {
+    public PresenteurPrincipal(Activity activite, ContratVuePresenteurPrincipal.IVuePrincipale vue, Modèle modele) {
         _activite=activite;
         _modele=modele;
         _vue=vue;

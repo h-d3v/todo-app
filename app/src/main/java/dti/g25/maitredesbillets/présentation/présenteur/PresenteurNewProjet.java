@@ -4,13 +4,13 @@ import android.app.Activity;
 
 import android.content.Intent;
 import dti.g25.maitredesbillets.présentation.ContratVuePresenteurNewProjet;
-import dti.g25.maitredesbillets.présentation.modèle.Modele;
+import dti.g25.maitredesbillets.présentation.modèle.Modèle;
 
 
 public class PresenteurNewProjet implements ContratVuePresenteurNewProjet.IPresenteurNewProjet {
     Activity _activite;
     ContratVuePresenteurNewProjet.IVueNewProjet _vue;
-    Modele _modele;
+    Modèle _modele;
 
 
     /**
@@ -24,7 +24,7 @@ public class PresenteurNewProjet implements ContratVuePresenteurNewProjet.IPrese
      * @param vue la vue pour le nouveau projet
      * @param modele le modele MVP
      */
-    public PresenteurNewProjet(Activity activite, ContratVuePresenteurNewProjet.IVueNewProjet vue, Modele modele) {
+    public PresenteurNewProjet(Activity activite, ContratVuePresenteurNewProjet.IVueNewProjet vue, Modèle modele) {
         _activite=activite;
         _vue=vue;
         _modele=modele;

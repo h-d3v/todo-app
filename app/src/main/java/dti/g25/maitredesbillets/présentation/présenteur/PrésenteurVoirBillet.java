@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import dti.g25.maitredesbillets.domaine.entité.Billet;
 import dti.g25.maitredesbillets.présentation.ContratVuePrésenteurVoirBillet;
-import dti.g25.maitredesbillets.présentation.modèle.Modele;
+import dti.g25.maitredesbillets.présentation.modèle.Modèle;
 import dti.g25.maitredesbillets.ui.activité.créerBilletActivity;
 
 public class PrésenteurVoirBillet implements ContratVuePrésenteurVoirBillet.IPrésenteurVoirBillet{
@@ -13,10 +13,10 @@ public class PrésenteurVoirBillet implements ContratVuePrésenteurVoirBillet.IP
     public static final String EXTRA_POSITION="dti.g25.maitredesbillets.position";
 
     private ContratVuePrésenteurVoirBillet.IVueVoirBille vue;
-    private Modele modèle;
+    private Modèle modèle;
     private Activity activité;
 
-    public PrésenteurVoirBillet(Activity activité, ContratVuePrésenteurVoirBillet.IVueVoirBille vue, Modele modèle) {
+    public PrésenteurVoirBillet(Activity activité, ContratVuePrésenteurVoirBillet.IVueVoirBille vue, Modèle modèle) {
         this.activité=activité;
         this.modèle=modèle;
         this.vue=vue;
