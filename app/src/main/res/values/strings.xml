@@ -10,9 +10,10 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
-    <!-- Activité creer billet-->
+
     <string name="nom_Billet">Nom Billet </string>
     <string name="descriptiom_Billet">Description Billet </string>
+
     <string name="title_activity_main2">Main2Activity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
