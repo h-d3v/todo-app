@@ -9,12 +9,12 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Billet:" />
+        android:text="@string/nom_Billet" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvBillets"
         android:layout_width="match_parent"
-        android:layout_height="595dp">
+        android:layout_height="460dp">
 
     </androidx.recyclerview.widget.RecyclerView>
 
@@ -22,5 +22,5 @@
         android:id="@+id/btnCréerBillet"
         android:layout_width="258dp"
         android:layout_height="67dp"
-        android:text="Créer Billet" />
+        android:text="@string/créer_billet" />
 </LinearLayout>

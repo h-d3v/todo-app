@@ -20,6 +20,12 @@ public class Billet {
         this.projetId = 1;
     }
 
+    //Constructeur + que minimum
+    public Billet(String titre, String description){
+        this.titre = titre;
+        this.description = description;
+    }
+
     //Constructeur minimum
     public Billet(String titre, String description, int ticketId, int projetId) {
         this.titre = titre;

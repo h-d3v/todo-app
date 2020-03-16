@@ -40,6 +40,7 @@ public class VueVoirBillet extends Fragment implements ContratVuePrésenteurVoir
                 présenteur.requêteCréerBillet();
             }
         });
+
         return vue;
     }
 
@@ -48,4 +49,6 @@ public class VueVoirBillet extends Fragment implements ContratVuePrésenteurVoir
         if(billetAdapter!=null)
             billetAdapter.notifyDataSetChanged();
     }
+
+
 }
