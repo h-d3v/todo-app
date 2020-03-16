@@ -2,9 +2,12 @@ package dti.g25.maitredesbillets.présentation.présenteur;
 
 import android.app.Activity;
 import android.content.Intent;
+<<<<<<< HEAD
 
 import java.util.ArrayList;
 
+=======
+>>>>>>> 8-visualition-de-projet
 import dti.g25.maitredesbillets.domaine.entité.Billet;
 import dti.g25.maitredesbillets.domaine.interacteur.CréationBillet;
 import dti.g25.maitredesbillets.présentation.ContratVuePrésenteurVoirBillet;
@@ -29,7 +32,12 @@ public class PrésenteurVoirBillet implements ContratVuePrésenteurVoirBillet.IP
 
     @Override
     public String getTitreBillet(int position) {
+<<<<<<< HEAD
         return modèle.getBillets().get(position).getTitre();
+=======
+        return "" ;
+        // modèle.get(position).getTitre();
+>>>>>>> 8-visualition-de-projet
     }
 
     @Override
@@ -61,9 +69,14 @@ public class PrésenteurVoirBillet implements ContratVuePrésenteurVoirBillet.IP
 
     @Override
     public int getNombreItems() {
+<<<<<<< HEAD
         if(modèle.getBillets() == null)
             return 0;
         return modèle.getBillets().size();
+=======
+       // return modèle.size();
+        return 0;
+>>>>>>> 8-visualition-de-projet
     }
 
     @Override

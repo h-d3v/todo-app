@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tbVuePrinci"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#4C2583"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:subtitleTextColor="#FFFFFF"
+        app:title="Liste des mes projets" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvProjet"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#081018"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:saveEnabled="false"
+        android:paddingStart="10dp"
+        tools:ignore="RtlSymmetry" />
+
+
+    <Button
+        android:id="@+id/btnNouveauProjet"
+        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+        android:layout_width="match_parent"
+        android:layout_height="62dp"
+        android:background="#11A375"
+        android:text="Nouveau Projet"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:srcCompat="@android:drawable/ic_menu_add" />
+</LinearLayout>

@@ -1,88 +1,101 @@
 package dti.g25.maitredesbillets.domaine.entité;
 
+import androidx.annotation.NonNull;
+import java.util.LinkedList;
+
 public class Projet {
 
+    private LinkedList<Billet> billets;
     private String titre;
-    private String description;
     private int id;
-    private int column;
-    private String userCourriel;
-    private String chefProjet;
 
-    //Constructeur vide
+    /**
+     * //Constructeur vide pour les tests
+     */
     public Projet() {
         this.titre = "Test";
-        this.description = "";
         this.id = 1;
-        this.userCourriel = "";
-        this.chefProjet = "";
+        this.billets=new LinkedList<>();
     }
 
-    //Constructeur minimum
-    public Projet(String titre, String description, int id, String chefProjet) {
+    /**
+     * Constructeur minimum
+     * @param titre le titre du projet
+     * @param id l'id du projet
+     */
+    public Projet(String titre, int id) {
         this.titre = titre;
-        this.description = description;
         this.id = id;
-        this.chefProjet = chefProjet;
+        this.billets=new LinkedList<>();
     }
 
-    //Constructeur complet
-    public Projet(String titre, String description, int id, int column, String userCourriel, String chefProjet) {
+    /**
+     * Constructeur complet
+     * @param titre le titre du projet
+     * @param id l'id du projet
+     * @param billets la liste des billets du projet,au cas elle existe deja
+     */
+    public Projet(String titre, int id, LinkedList<Billet> billets) {
         this.titre = titre;
-        this.description = description;
         this.id = id;
-        this.column = column;
-        this.userCourriel = userCourriel;
-        this.chefProjet = chefProjet;
+        this.billets=billets;
     }
 
-    //Getters
+
+    /**
+     *
+     * @return titre du projet
+     */
     public String getTitre() {
         return titre;
     }
 
-    public String getDescription() {
-        return description;
-    }
 
+    /**
+     *
+     * @return id du projet
+     */
     public int getId() {
         return id;
     }
 
-    public int getColumn() {
-        return column;
-    }
 
-    public String getUserCourriel() {
-        return userCourriel;
-    }
-
-    public String getChefProjet() {
-        return chefProjet;
-    }
-
-    //Setters
+    /**
+     * Setter pour le titre du projet
+     * @param titre du projet
+     */
     public void setTitre(String titre) {
         this.titre = titre;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+
+    /**
+     * @return liste de billets du projet
+     */
+    public LinkedList<Billet> getBillets() {
+        return billets;
+    }
+
+    /**
+     * @param billets liste de billets du projet
+     */
+    public void setBillets(LinkedList<Billet> billets) {
+        this.billets = billets;
     }
 
     public void setId(int id) {
         this.id = id;
     }
 
-    public void setColumn(int column) {
-        this.column = column;
+
+    /**
+     * @return le toString, qui est le titre du projet
+     */
+    @NonNull
+    @Override
+    public String toString() {
+        return this.titre;
     }
 
-    public void setUserCourriel(String userCourriel) {
-        this.userCourriel = userCourriel;
-    }
 
-    public void setChefProjet(String chefProjet) {
-        this.chefProjet = chefProjet;
-    }
 }

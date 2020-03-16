@@ -29,6 +29,7 @@ public class BilletAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         return new RecyclerView.ViewHolder(racine){};
     }
 
+    @SuppressLint("WrongViewCast")
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
 //        ((ImageButton)holder.itemView.findViewById(R.id.btnVoirDétail)).setOnClickListener(new View.OnClickListener(){
