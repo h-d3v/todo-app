@@ -76,7 +76,7 @@ public  class PresenteurPrincipal implements ContratVuePresenteurPrincipal.IPres
      */
     @Override
     public int getNbItems() {
-        return _modele.getProjets().size();
+        return _modele.getDAOProjets().size();
     }
 
     /**
@@ -103,6 +103,7 @@ public  class PresenteurPrincipal implements ContratVuePresenteurPrincipal.IPres
             if(!titre.equals("")){
                  Projet nouveauProjet=gestionProjet.creerProjet(titre);
                 _modele.ajouterUnProjet(nouveauProjet);
+                _modele.rafraichir();
                 _vue.rafraichir();
             }
         }

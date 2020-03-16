@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import dti.g25.maitredesbillets.R;
+import dti.g25.maitredesbillets.dao.DAOFactorySQLite;
 import dti.g25.maitredesbillets.présentation.modèle.Modèle;
 import dti.g25.maitredesbillets.présentation.présenteur.PresenteurPrincipal;
 import dti.g25.maitredesbillets.présentation.vue.VuePrincipale;
@@ -24,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Modèle modele=new Modèle();
+        Modèle modele=new Modèle(this, new DAOFactorySQLite());
         VuePrincipale vue=new VuePrincipale();
         _presenteur= new PresenteurPrincipal(this, vue, modele);
 

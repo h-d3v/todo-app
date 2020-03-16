@@ -3,6 +3,7 @@ package dti.g25.maitredesbillets.dao;
 import android.content.Context;
 import androidx.test.core.app.ApplicationProvider;
 import dti.g25.maitredesbillets.domaine.entité.Projet;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -25,6 +26,14 @@ public class ProjetDAOSQLiteTest {
         projetCobaye= new Projet("titre");
         projetDAOSQLiteCobaye = new ProjetDAOSQLite(context);
 
+    }
+
+    @After
+    public void terminerTest(){
+        context = ApplicationProvider.getApplicationContext();
+        SQLiteDatabaseHandler sqLiteDatabaseHandler= new SQLiteDatabaseHandler(context);
+        name= sqLiteDatabaseHandler.getDatabaseName();
+        context.deleteDatabase(name);
     }
 
 

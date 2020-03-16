@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
 import dti.g25.maitredesbillets.R;
+import dti.g25.maitredesbillets.dao.DAOFactorySQLite;
 import dti.g25.maitredesbillets.présentation.modèle.Modèle;
 import dti.g25.maitredesbillets.présentation.présenteur.PresenteurNewProjet;
 import dti.g25.maitredesbillets.présentation.vue.VueNewProjet;
@@ -28,7 +29,7 @@ public class NouveauProjetActivity extends AppCompatActivity {
         setContentView(R.layout.activity_new_projet);
 
         VueNewProjet vue = new VueNewProjet();
-        Modèle modele = new Modèle();
+        Modèle modele = new Modèle(this, new DAOFactorySQLite());
 
         _presenteur=new PresenteurNewProjet(this, vue, modele);
         vue.setPresenteur(_presenteur);

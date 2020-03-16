@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import dti.g25.maitredesbillets.R;
+import dti.g25.maitredesbillets.dao.DAOFactorySQLite;
 import dti.g25.maitredesbillets.présentation.modèle.Modèle;
 import dti.g25.maitredesbillets.présentation.présenteur.PrésenteurVoirBillet;
 import dti.g25.maitredesbillets.présentation.vue.VueVoirBillet;
@@ -18,7 +19,7 @@ public class voirBilletActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_voir_billet);
 
-        Modèle modèle= new Modèle();
+        Modèle modèle= new Modèle(this, new DAOFactorySQLite());
         VueVoirBillet vue=new VueVoirBillet();
 
         int positionProjet = getIntent().getIntExtra("EXTRA_POSITION_PROJET", -1);

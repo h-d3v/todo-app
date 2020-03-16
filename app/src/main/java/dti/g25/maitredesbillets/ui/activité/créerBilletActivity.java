@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import dti.g25.maitredesbillets.R;
+import dti.g25.maitredesbillets.dao.DAOFactorySQLite;
 import dti.g25.maitredesbillets.présentation.modèle.Modèle;
 import dti.g25.maitredesbillets.présentation.présenteur.PrésenteurCréerBillet;
 import dti.g25.maitredesbillets.présentation.vue.VueCréerBillet;
@@ -27,7 +28,7 @@ public class créerBilletActivity extends AppCompatActivity {
         setContentView(R.layout.activity_creer_billet);
 
         VueCréerBillet vue=new VueCréerBillet();
-        Modèle modèle=new Modèle();
+        Modèle modèle=new Modèle(this,new DAOFactorySQLite());
 
         présenteur=new PrésenteurCréerBillet(this, vue, modèle);
         vue.setPrésenteur(présenteur);
