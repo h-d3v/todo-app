@@ -1,5 +1,6 @@
 package dti.g25.maitredesbillets.domaine.interacteur;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 import dti.g25.maitredesbillets.domaine.entité.Billet;
@@ -11,13 +12,13 @@ public class GestionProjet implements IGestionProjet {
     /**
      * Creer un projet
      * @param titre titre du projet
-     * @param id id du projet
      * @return un Projet
      */
     @Override
-    public Projet creerProjet(String titre, int id) {
-        return new Projet(titre, id);
+    public Projet creerProjet(String titre) {
+        return new Projet(titre);
     }
+
 
     /**
      * Rennomer un projet existant
@@ -46,7 +47,7 @@ public class GestionProjet implements IGestionProjet {
             throw new Exception("Le projet ne peut pas etre null ni \n" +
                     "le billet");
         }
-        LinkedList<Billet> listeBilletProjet=unProjet.getBillets();
+        ArrayList<Billet> listeBilletProjet=unProjet.getBillets();
         listeBilletProjet.add(unBillet);
         unProjet.setBillets(listeBilletProjet);
     }
@@ -63,7 +64,7 @@ public class GestionProjet implements IGestionProjet {
             throw new Exception("Le projet ne peut pas etre null ni \n" +
                     "le billet");
         }
-        LinkedList<Billet> listeBilletProjet=unProjet.getBillets();
+        ArrayList<Billet> listeBilletProjet=unProjet.getBillets();
         listeBilletProjet.remove(unBillet);
         unProjet.setBillets(listeBilletProjet);
     }

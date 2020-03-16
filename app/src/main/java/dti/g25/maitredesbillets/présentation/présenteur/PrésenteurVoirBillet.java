@@ -2,12 +2,8 @@ package dti.g25.maitredesbillets.présentation.présenteur;
 
 import android.app.Activity;
 import android.content.Intent;
-<<<<<<< HEAD
-
 import java.util.ArrayList;
 
-=======
->>>>>>> 8-visualition-de-projet
 import dti.g25.maitredesbillets.domaine.entité.Billet;
 import dti.g25.maitredesbillets.domaine.interacteur.CréationBillet;
 import dti.g25.maitredesbillets.présentation.ContratVuePrésenteurVoirBillet;
@@ -16,28 +12,27 @@ import dti.g25.maitredesbillets.ui.activité.créerBilletActivity;
 
 public class PrésenteurVoirBillet implements ContratVuePrésenteurVoirBillet.IPrésenteurVoirBillet{
 
-    private static final String EXTRA_POSITION = "dti.g25.maitredesbillets.position";
+    private static final String EXTRA_POSITION_BILLET = "dti.g25.maitredesbillets.positionBillet";
     private static final String EXTRA_DESCRIPTION_BILLET = "dti.g25.maitredesbillets.descriptionBillet";
     private static final String EXTRA_TITRE_BILLET = "dti.g25.maitredesbillets.titreBillet";
+    private static final String EXTRA_POSITION_PROJET = "dti.g25.maitredesbillets.positionProjet";
 
     private ContratVuePrésenteurVoirBillet.IVueVoirBille vue;
     private Modèle modèle;
     private Activity activité;
 
-    public PrésenteurVoirBillet(Activity activité, ContratVuePrésenteurVoirBillet.IVueVoirBille vue, Modèle modèle) {
+    private int positionProjet;
+
+    public PrésenteurVoirBillet(Activity activité, ContratVuePrésenteurVoirBillet.IVueVoirBille vue, Modèle modèle, int positionProjet) {
         this.activité=activité;
         this.modèle=modèle;
         this.vue=vue;
+        this.positionProjet = positionProjet;
     }
 
     @Override
     public String getTitreBillet(int position) {
-<<<<<<< HEAD
-        return modèle.getBillets().get(position).getTitre();
-=======
-        return "" ;
-        // modèle.get(position).getTitre();
->>>>>>> 8-visualition-de-projet
+        return modèle.getBillets(positionProjet).get(position).getTitre();
     }
 
     @Override
@@ -47,7 +42,7 @@ public class PrésenteurVoirBillet implements ContratVuePrésenteurVoirBillet.IP
 
     @Override
     public void requêteSupprimerBillet(int position) {
-        modèle.supprimerBillet(position);
+        modèle.supprimerBillet(positionProjet, position);
     }
 
     @Override
@@ -69,29 +64,23 @@ public class PrésenteurVoirBillet implements ContratVuePrésenteurVoirBillet.IP
 
     @Override
     public int getNombreItems() {
-<<<<<<< HEAD
-        if(modèle.getBillets() == null)
+        if(modèle.getBillets(positionProjet) == null)
             return 0;
-        return modèle.getBillets().size();
-=======
-       // return modèle.size();
-        return 0;
->>>>>>> 8-visualition-de-projet
+        return modèle.getBillets(positionProjet).size();
     }
 
     @Override
-    public void requêteCréerBillet(){
+    public void requêteCréerBillet() {
         Intent intentModif=new Intent(activité, créerBilletActivity.class);
-
         activité.startActivityForResult(intentModif, 20);
     }
+
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if(resultCode==Activity.RESULT_OK){
             String titreBillet=data.getStringExtra(EXTRA_TITRE_BILLET);
             String descriptionBillet= data.getStringExtra(EXTRA_DESCRIPTION_BILLET);
-            int position=data.getIntExtra(EXTRA_POSITION, -1);
-
-            modèle.modifierBillets(position, titreBillet, descriptionBillet);
+            int positionBillet=data.getIntExtra(EXTRA_POSITION_BILLET, -1);
+            modèle.modifierBillets(positionProjet, positionBillet, titreBillet, descriptionBillet);
             vue.rafraîchir();
         }
     }

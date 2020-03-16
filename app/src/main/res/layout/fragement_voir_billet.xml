@@ -14,13 +14,9 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvBillets"
         android:layout_width="match_parent"
-<<<<<<< HEAD
         android:layout_height="460dp">
-=======
         android:layout_height="501dp"
         android:background="#081018">
->>>>>>> 8-visualition-de-projet
-
         android:layout_height="501dp"
         android:background="#081018">
     </androidx.recyclerview.widget.RecyclerView>

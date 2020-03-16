@@ -4,6 +4,7 @@ package dti.g25.maitredesbillets.présentation.vue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -46,14 +47,9 @@ public class ProjetAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
      */
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, final int position) {
-        holder.itemView.findViewById(R.id.btnAcceder).setOnClickListener(new View.OnClickListener(){
-            /**
-             * Lorsquon clique sur le boutton d'un projet,
-             * la vue fait au présenteur la demande d'accès à ce projet
-             * @param v la vue
-             */
+        ((ImageButton)holder.itemView.findViewById(R.id.btnAcceder)).setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View v){
+            public void onClick(View bouton){
                 _presenteur.requeteAccederProjet(position);
             }
         });

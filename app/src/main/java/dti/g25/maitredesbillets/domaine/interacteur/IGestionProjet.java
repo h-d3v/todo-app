@@ -4,7 +4,7 @@ import dti.g25.maitredesbillets.domaine.entité.Billet;
 import dti.g25.maitredesbillets.domaine.entité.Projet;
 
 public interface IGestionProjet {
-    Projet creerProjet(String titre, int id);
+    Projet creerProjet(String titre);
 
 
     void rennomerProjet(Projet unProjet, String newTitre) throws Exception;

@@ -19,6 +19,9 @@ import android.widget.Button;
 import android.os.Bundle;
 import android.widget.ImageButton;
 
+import it.xabaras.android.recyclerview.swipedecorator.RecyclerViewSwipeDecorator;
+
+
 public class VueVoirBillet extends Fragment implements ContratVuePrésenteurVoirBillet.IVueVoirBille {
 
     private RecyclerView rvBillets;

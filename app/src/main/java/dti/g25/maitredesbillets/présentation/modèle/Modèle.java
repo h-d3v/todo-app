@@ -1,52 +1,36 @@
 package dti.g25.maitredesbillets.présentation.modèle;
 
-<<<<<<< HEAD
+
 import dti.g25.maitredesbillets.domaine.entité.Billet;
 import dti.g25.maitredesbillets.domaine.interacteur.CréationBillet;
-
+import dti.g25.maitredesbillets.domaine.entité.Projet;
+import java.util.LinkedList;
 import java.util.ArrayList;
 
 public class Modèle {
+    LinkedList<Projet> projets;
     ArrayList<Billet> billets;
 
-    public Modèle(ArrayList<Billet> billets) {
-        this.billets = billets;
-    }
-
-    public Modèle() {
-        billets = new ArrayList<Billet>();
-    }
-
-    public void modifierBillets(int position, String titre, String description){
+    public void modifierBillets(int positionProjet, int positionBillet, String titre, String description){
         Billet billet =  CréationBillet.créerBillet(titre, description);
-        if(position > -1){
-            billets.set(position, billet);
+        if(positionBillet > -1){
+            getProjetParPos(positionProjet).getBillets().set(positionBillet, billet);
         } else {
-            billets.add(billet);
+            getProjetParPos(positionProjet).getBillets().add(billet);
         }
     }
 
-    public void supprimerBillet(int position){
-        billets.remove(billets.get(position));
+    public void supprimerBillet(int positionProjet, int positionBillet){
+        getProjetParPos(positionProjet).getBillets().remove(getProjetParPos(positionProjet).getBillets().get(positionBillet));
     }
 
-    public ArrayList<Billet> getBillets(){
-        return this.billets;
+    public ArrayList<Billet> getBillets(int positionProjet){
+        return getProjetParPos(positionProjet).getBillets();
     }
 
-    public void setBillets(ArrayList<Billet> billets){
-        this.billets = billets;
+    public void setBillets(int positionProjet, ArrayList<Billet> billets){
+         getProjetParPos(positionProjet).setBillets(billets);
     }
-=======
-import dti.g25.maitredesbillets.domaine.entité.Projet;
-
-import java.util.LinkedList;
-
-/**
- * TODO: 3/13/2020 la persistance
- */
-public class Modèle{
-    private LinkedList<Projet> projets;
 
     /**
      * Constructeur du modele
@@ -84,5 +68,4 @@ public class Modèle{
      */
     public void retirerProjetParPos(int postion){ projets.remove(postion);}
 
->>>>>>> 8-visualition-de-projet
 }

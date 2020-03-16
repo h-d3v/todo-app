@@ -8,6 +8,7 @@ import dti.g25.maitredesbillets.domaine.interacteur.GestionProjet;
 import dti.g25.maitredesbillets.présentation.ContratVuePresenteurPrincipal;
 import dti.g25.maitredesbillets.présentation.modèle.Modèle;
 import dti.g25.maitredesbillets.ui.activité.NouveauProjetActivity;
+import dti.g25.maitredesbillets.ui.activité.voirBilletActivity;
 
 public  class PresenteurPrincipal implements ContratVuePresenteurPrincipal.IPresenteurPrincipal {
     public static final String EXTRA_TITRE_NEW_PROJET="dti.g25.maitre-des-tickets.titre_new_projet";
@@ -46,6 +47,9 @@ public  class PresenteurPrincipal implements ContratVuePresenteurPrincipal.IPres
      */
     @Override
     public void requeteAccederProjet(int position) {
+        Intent intentModif=new Intent(_activite, voirBilletActivity.class);
+        intentModif.putExtra("EXTRA_POSITION_PROJET", position);
+        _activite.startActivityForResult(intentModif, 20);
     }
 
     /**
@@ -97,8 +101,7 @@ public  class PresenteurPrincipal implements ContratVuePresenteurPrincipal.IPres
             String titre=data.getStringExtra(EXTRA_TITRE_NEW_PROJET);
             assert titre != null;
             if(!titre.equals("")){
-                double generationNombre= Math.floor(Math.random()*Math.floor(100005449));
-                 Projet nouveauProjet=gestionProjet.creerProjet(titre, (int) generationNombre);
+                 Projet nouveauProjet=gestionProjet.creerProjet(titre);
                 _modele.ajouterUnProjet(nouveauProjet);
                 _vue.rafraichir();
             }
