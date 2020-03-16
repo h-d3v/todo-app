@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Billet:" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvBillets"
+        android:layout_width="match_parent"
+        android:layout_height="501dp"
+        android:background="#081018">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <Button
+        android:id="@+id/btnCréerBillet"
+        android:layout_width="258dp"
+        android:layout_height="67dp"
+        android:text="Créer Billet" />
+</LinearLayout>
