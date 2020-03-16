@@ -68,6 +68,7 @@ public  class PresenteurPrincipal implements ContratVuePresenteurPrincipal.IPres
     @Override
     public void requeteSupprimerProjet(int position) {
         _modele.retirerProjetParPos(position);
+        _modele.rafraichir();
         _vue.rafraichir();
     }
 
