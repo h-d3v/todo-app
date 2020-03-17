@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tbNewProjet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#4C2583"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:title="Nouveau projet" />
+
+    <EditText
+        android:id="@+id/txtTitreNewProjet"
+        android:layout_width="match_parent"
+        android:layout_height="73dp"
+        android:editable="true"
+        android:ems="10"
+        android:freezesText="false"
+        android:inputType="text"
+        android:selectAllOnFocus="true"
+        android:text="Titre du projet"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:verticalScrollbarPosition="defaultPosition" />
+
+    <Button
+        android:id="@+id/btnCreerProjet"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#B2CCCCCC"
+        android:text="Créer un nouveau projet"
+        android:textColor="#11A375"
+        android:textColorHint="#FFFFFF"
+        android:textSize="18sp"
+        android:typeface="normal" />
+
+</LinearLayout>
