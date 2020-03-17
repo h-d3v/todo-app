@@ -6,6 +6,7 @@
     android:id="@+id/layout_voir_billet"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundBlack"
     tools:context=".ui.activité.voirBilletActivity">
 
 </androidx.constraintlayout.widget.ConstraintLayout>

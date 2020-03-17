@@ -8,10 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-
 import androidx.fragment.app.Fragment;
-
-import org.w3c.dom.Text;
 
 import dti.g25.maitredesbillets.R;
 import dti.g25.maitredesbillets.présentation.ContratVuePrésenteurCréerBillet;
@@ -37,8 +34,8 @@ public class VueCréerBillet extends Fragment implements ContratVuePrésenteurCr
                               Bundle savedInstanceState) {
         View racine = inflater.inflate(R.layout.fragement_creer_billet, container, false);
 
-        txtTitreBillet=(TextView)racine.findViewById(R.id.txtCréeationTitreBillet);
-        txtDescriptionBillet=(TextView)racine.findViewById(R.id.txtDescriptionCréeationBillet);
+        txtTitreBillet=racine.findViewById(R.id.txtCréeationTitreBillet);
+        txtDescriptionBillet=racine.findViewById(R.id.txtDescriptionCréeationBillet);
         btnCreerBillet = racine.findViewById(R.id.btnCreerBillet);
         txtTitreBillet.addTextChangedListener(billetTextWatcher);
         txtDescriptionBillet.addTextChangedListener(billetTextWatcher);

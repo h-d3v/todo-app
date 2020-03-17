@@ -2,15 +2,12 @@ package dti.g25.maitredesbillets.présentation.modèle;
 
 
 import android.content.Context;
-import dti.g25.maitredesbillets.dao.DAOFactorySQLite;
-import dti.g25.maitredesbillets.dao.ProjetDAOSQLite;
 import dti.g25.maitredesbillets.domaine.entité.Billet;
 import dti.g25.maitredesbillets.domaine.interacteur.CréationBillet;
 import dti.g25.maitredesbillets.domaine.entité.Projet;
 import dti.g25.maitredesbillets.modele.dao.DAO;
 import dti.g25.maitredesbillets.modele.dao.DAOFactory;
 
-import java.util.LinkedList;
 import java.util.ArrayList;
 import java.util.List;
 
