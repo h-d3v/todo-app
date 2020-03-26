@@ -41,7 +41,6 @@ public class ProjetDAOSQLite  implements DAO<Projet> {
         if (cursor.moveToFirst()){
 
             String titre= cursor.getString(cursor.getColumnIndex(SQLiteDatabaseHandler.EntreesProjet.NOM_COLONNE_TITRE));
-            int idTouve = cursor.getInt(cursor.getColumnIndex(SQLiteDatabaseHandler.EntreesProjet.NOM_COLONNE_ID));
             unProjet= new Projet(titre);
             cursor.close();
         }
@@ -50,6 +49,7 @@ public class ProjetDAOSQLite  implements DAO<Projet> {
     }
 
     @Override
+    //@TODO
     public Projet modifier(Projet projet) {
         return null;
     }

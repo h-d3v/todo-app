@@ -54,7 +54,7 @@ public class ProjetDAOSQLiteTest {
 
     @Test
     public void modifier() {
-        //Methode modifier retourne null A TESTER QUAND IMPLEMENTE
+        //Methode modifier A TESTER QUAND IMPLEMENTE @TODO
 
     }
 

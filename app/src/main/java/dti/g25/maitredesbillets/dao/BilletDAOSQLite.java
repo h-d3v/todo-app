@@ -44,11 +44,10 @@ public class BilletDAOSQLite implements DAO<Billet>{
         if (cursor.moveToFirst()){
 
             String titre= cursor.getString(cursor.getColumnIndex(SQLiteDatabaseHandler.EntreesBillet.NOM_COLONNE_TITRE));
-            long idTouve = cursor.getInt(cursor.getColumnIndex(SQLiteDatabaseHandler.EntreesBillet.NOM_COLONNE_ID));
             long idProjetTrouve = cursor.getInt(cursor.getColumnIndex(SQLiteDatabaseHandler.EntreesBillet.NOM_COLONNE_PROJET_ID));
             String desc = cursor.getString(cursor.getColumnIndex(SQLiteDatabaseHandler.EntreesBillet.NOM_COLONNE_DESC));
             if(idProjetTrouve==idProjet && idProjetTrouve<Integer.MAX_VALUE) {
-                billet = new Billet(titre, desc, (int)idTouve, (int) idProjet);
+                billet = new Billet(titre, desc);
             }
         }
         cursor.close();
