@@ -5,4 +5,5 @@ public interface DAO<T> {
      T lire();
      T modifier(T t);
      boolean supprimer();
+     long getPK();
 }

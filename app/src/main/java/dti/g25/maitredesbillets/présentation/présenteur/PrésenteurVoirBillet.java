@@ -16,6 +16,7 @@ public class PrésenteurVoirBillet implements ContratVuePrésenteurVoirBillet.IP
     private static final String EXTRA_DESCRIPTION_BILLET = "dti.g25.maitredesbillets.descriptionBillet";
     private static final String EXTRA_TITRE_BILLET = "dti.g25.maitredesbillets.titreBillet";
     private static final String EXTRA_POSITION_PROJET = "dti.g25.maitredesbillets.positionProjet";
+    private static final int REQUEST_CODE_AJOUTER_BILLET= 5;
 
     private ContratVuePrésenteurVoirBillet.IVueVoirBille vue;
     private Modèle modèle;
@@ -26,13 +27,14 @@ public class PrésenteurVoirBillet implements ContratVuePrésenteurVoirBillet.IP
     public PrésenteurVoirBillet(Activity activité, ContratVuePrésenteurVoirBillet.IVueVoirBille vue, Modèle modèle, int positionProjet) {
         this.activité=activité;
         this.modèle=modèle;
+        modèle.setDaoBillets(positionProjet);
         this.vue=vue;
         this.positionProjet = positionProjet;
     }
 
     @Override
     public String getTitreBillet(int position) {
-        return modèle.getBillets(positionProjet).get(position).getTitre();
+        return modèle.getDAOBillets(positionProjet).get(position).lire().getTitre();
     }
 
     @Override
@@ -66,21 +68,24 @@ public class PrésenteurVoirBillet implements ContratVuePrésenteurVoirBillet.IP
     public int getNombreItems() {
         if(modèle.getBillets(positionProjet) == null)
             return 0;
-        return modèle.getBillets(positionProjet).size();
+        return modèle.getDAOBillets(positionProjet).size();
     }
 
     @Override
     public void requêteCréerBillet() {
         Intent intentModif=new Intent(activité, créerBilletActivity.class);
-        activité.startActivityForResult(intentModif, 20);
+        activité.startActivityForResult(intentModif, REQUEST_CODE_AJOUTER_BILLET);
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if(resultCode==Activity.RESULT_OK){
+
+        if (requestCode==REQUEST_CODE_AJOUTER_BILLET&&resultCode==Activity.RESULT_OK){
             String titreBillet=data.getStringExtra(EXTRA_TITRE_BILLET);
             String descriptionBillet= data.getStringExtra(EXTRA_DESCRIPTION_BILLET);
-            int positionBillet=data.getIntExtra(EXTRA_POSITION_BILLET, -1);
-            modèle.modifierBillets(positionProjet, positionBillet, titreBillet, descriptionBillet);
+            new CréationBillet();
+            Billet billet= CréationBillet.créerBillet(titreBillet,descriptionBillet);
+            modèle.ajouterDAOBillet(positionProjet, billet);
+            modèle.setDaoBillets(positionProjet);
             vue.rafraîchir();
         }
     }

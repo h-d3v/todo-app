@@ -31,7 +31,10 @@ public class DAOFactorySQLite extends DAOFactory {
         cursor.close();
         return projets;
     }
-    public List<DAO<Billet>> creerListeDAOBiletParProjet(Context context, ProjetDAOSQLite projetDAO){
+
+
+    @Override
+    public List<DAO<Billet>> creerListeDAOBilletParProjet(Context context, DAO<Projet> projetDAO){
         SQLiteDatabase sqLiteDatabase= new SQLiteDatabaseHandler(context).getReadableDatabase();
         LinkedList<DAO<Billet>> billets= new LinkedList<DAO<Billet>>();
         Cursor cursor= sqLiteDatabase.rawQuery("select * from "+ SQLiteDatabaseHandler.EntreesBillet.NOM_TABLE+" where "+ SQLiteDatabaseHandler.EntreesBillet.NOM_COLONNE_PROJET_ID+" = " +projetDAO.getPK() , null );
@@ -41,6 +44,15 @@ public class DAOFactorySQLite extends DAOFactory {
         }
         cursor.close();
         return billets;
+    }
+
+    @Override
+    public Billet ajouterBilletAuProjet(Context context, DAO<Projet> unProjet, Billet unBillet) {
+        SQLiteDatabase sqLiteDatabase= new SQLiteDatabaseHandler(context).getWritableDatabase();
+
+            BilletDAOSQLite billetDAOSQLite = new BilletDAOSQLite(context, unProjet.getPK());
+            return billetDAOSQLite.creer(unBillet);
+
     }
 
 }

@@ -16,16 +16,26 @@ import java.util.List;
 
 public class Modèle {
     List<DAO<Projet>> projets;
-    ArrayList<Billet> billets;
+    List<DAO<Billet>> billets;
     Context context;
     DAOFactory daoFactory;
+
+    public void ajouterDAOBillet(int projetPosition, Billet billet){
+        daoFactory.ajouterBilletAuProjet(context,getProjetDAOParPos(projetPosition), billet);
+    }
 
     public void modifierBillets(int positionProjet, int positionBillet, String titre, String description){
         Billet billet =  CréationBillet.créerBillet(titre, description);
         if(positionBillet > -1){
             getProjetParPos(positionProjet).getBillets().set(positionBillet, billet);
-        } else {
-            getProjetParPos(positionProjet).getBillets().add(billet);
+        }
+    }
+
+
+    public void modifierDAOBillets(int positionProjet, int positionBillet, String titre, String description){
+        Billet billet =  CréationBillet.créerBillet(titre, description);
+        if(positionBillet > -1){
+            getDAOBillets(positionProjet).get(positionBillet).modifier(billet);
         }
     }
 
@@ -33,13 +43,22 @@ public class Modèle {
         getProjetParPos(positionProjet).getBillets().remove(getProjetParPos(positionProjet).getBillets().get(positionBillet));
     }
 
-    public ArrayList<Billet> getBillets(int positionProjet){
+    public List<Billet> getBillets(int positionProjet){
         return getProjetParPos(positionProjet).getBillets();
     }
 
-    public void setBillets(int positionProjet, ArrayList<Billet> billets){
+    public List<DAO<Billet>> getDAOBillets(int positionProjet){
+        return daoFactory.creerListeDAOBilletParProjet(context, getProjetDAOParPos(positionProjet));
+    }
+
+
+    public void setBillets(int positionProjet, List<Billet> billets){
          getProjetParPos(positionProjet).setBillets(billets);
     }
+    public void setDaoBillets(int positionProjet){
+        billets= daoFactory.creerListeDAOBilletParProjet(context, getProjetDAOParPos(positionProjet));
+    }
+
 
     /**
      * Constructeur du modele
@@ -64,7 +83,7 @@ public class Modèle {
      */
     public void ajouterUnProjet(Projet projet){
         DAO<Projet> projetDAO= daoFactory.creerDAOProjet(context);
-        projetDAO.creer(projet);        ;
+        projetDAO.creer(projet);
     }
 
     /**
@@ -74,6 +93,8 @@ public class Modèle {
     public Projet getProjetParPos(int position){
         return projets.get(position).lire();
     }
+
+    public DAO<Projet> getProjetDAOParPos(int position){return projets.get(position);}
 
     /**
      * Retire un projet de la liste projets selon sa position

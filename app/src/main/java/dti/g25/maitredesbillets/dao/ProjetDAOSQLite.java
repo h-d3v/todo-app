@@ -60,7 +60,8 @@ public class ProjetDAOSQLite  implements DAO<Projet> {
         int nbSupp = sqLiteDatabaseEcriture.delete(SQLiteDatabaseHandler.EntreesProjet.NOM_TABLE, SQLiteDatabaseHandler.EntreesProjet.NOM_COLONNE_ID+" = ?",new String[]{String.valueOf(id)});
         return nbSupp >0;
     }
-    protected long getPK(){
+    @Override
+    public long getPK(){
         return id;
     }
 

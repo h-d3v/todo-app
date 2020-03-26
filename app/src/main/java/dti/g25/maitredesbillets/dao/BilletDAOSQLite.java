@@ -13,7 +13,8 @@ public class BilletDAOSQLite implements DAO<Billet>{
     SQLiteDatabase sqLiteDatabaseEcriture;
     SQLiteDatabase sqLiteDatabaseLecture;
 
-    public BilletDAOSQLite(Context context){
+    public BilletDAOSQLite(Context context, long idProjet){
+        this.idProjet=idProjet;
         sqLiteDatabaseEcriture= new SQLiteDatabaseHandler(context).getWritableDatabase();
         sqLiteDatabaseLecture= new SQLiteDatabaseHandler(context).getReadableDatabase();
     }
@@ -28,13 +29,11 @@ public class BilletDAOSQLite implements DAO<Billet>{
 
     @Override
     public Billet creer(Billet unBillet) {
-        Billet billetAjoute=null;
         ContentValues contentValues = new ContentValues();
         contentValues.put(SQLiteDatabaseHandler.EntreesBillet.NOM_COLONNE_TITRE, unBillet.getTitre());
-        contentValues.put(SQLiteDatabaseHandler.EntreesBillet.NOM_COLONNE_ID, id);
         contentValues.put(SQLiteDatabaseHandler.EntreesBillet.NOM_COLONNE_DESC, unBillet.getDescription());
         contentValues.put(SQLiteDatabaseHandler.EntreesBillet.NOM_COLONNE_PROJET_ID, idProjet);
-        id = sqLiteDatabaseEcriture.insert(SQLiteDatabaseHandler.EntreesProjet.NOM_TABLE, null,contentValues);
+        id = sqLiteDatabaseEcriture.insert(SQLiteDatabaseHandler.EntreesBillet.NOM_TABLE, null,contentValues);
         return lire();
     }
 
@@ -71,5 +70,10 @@ public class BilletDAOSQLite implements DAO<Billet>{
     public boolean supprimer() {
         int nbSupp = sqLiteDatabaseEcriture.delete(SQLiteDatabaseHandler.EntreesBillet.NOM_TABLE, SQLiteDatabaseHandler.EntreesBillet.NOM_COLONNE_ID+" = ?",new String[]{String.valueOf(id)});
         return nbSupp >0;
+    }
+
+    @Override
+    public long getPK() {
+        return id;
     }
 }

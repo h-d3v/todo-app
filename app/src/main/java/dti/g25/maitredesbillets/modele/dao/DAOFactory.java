@@ -10,4 +10,8 @@ public abstract class DAOFactory {
     public abstract DAO<Projet> creerDAOProjet(Context context);
 
     public abstract List<DAO<Projet>> creerListeDAOProjet(Context context);
+
+    public abstract List<DAO<Billet>> creerListeDAOBilletParProjet(Context context, DAO<Projet> unProjet);
+
+    public abstract Billet ajouterBilletAuProjet(Context context, DAO<Projet> unProjet, Billet unBillet);
 }

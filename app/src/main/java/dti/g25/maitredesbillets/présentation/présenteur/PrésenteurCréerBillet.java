@@ -38,6 +38,7 @@ public class PrésenteurCréerBillet implements ContratVuePrésenteurCréerBille
     @Override
     public void commencerCréeation(int position) {
         this.position = position;
+
     }
 
 }

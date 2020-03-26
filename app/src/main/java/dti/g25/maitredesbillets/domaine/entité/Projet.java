@@ -3,11 +3,11 @@ package dti.g25.maitredesbillets.domaine.entité;
 import androidx.annotation.NonNull;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
+import java.util.List;
 
 public class Projet {
 
-    private ArrayList<Billet> billets;
+    private List<Billet> billets;
     private String titre;
     private int id;
 
@@ -35,7 +35,7 @@ public class Projet {
      * @param id l'id du projet
      * @param billets la liste des billets du projet,au cas elle existe deja
      */
-    public Projet(String titre, int id, ArrayList<Billet> billets) {
+    public Projet(String titre, int id, List<Billet> billets) {
         this.titre = titre;
         this.id = id;
         this.billets=billets;
@@ -72,14 +72,14 @@ public class Projet {
     /**
      * @return liste de billets du projet
      */
-    public ArrayList<Billet> getBillets() {
+    public List<Billet> getBillets() {
         return billets;
     }
 
     /**
      * @param billets liste de billets du projet
      */
-    public void setBillets(ArrayList<Billet> billets) {
+    public void setBillets(List<Billet> billets) {
         this.billets = billets;
     }
 
