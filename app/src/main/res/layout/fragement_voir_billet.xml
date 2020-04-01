@@ -1,29 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tbBillets"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/nom_Billet" />
+        android:background="@color/toolbarMauve"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:title="Liste des billets" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvBillets"
         android:layout_width="match_parent"
-        android:layout_height="460dp">
-        android:layout_height="501dp"
-        android:background="#081018">
-        android:layout_height="501dp"
-        android:background="#081018">
-    </androidx.recyclerview.widget.RecyclerView>
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#081018"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:saveEnabled="false"
+        android:paddingStart="10dp"
+        tools:ignore="RtlSymmetry" />
 
     <Button
         android:id="@+id/btnCréerBillet"
-        android:layout_width="258dp"
-        android:layout_height="67dp"
-        android:text="@string/créer_billet" />
+        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+        android:layout_width="match_parent"
+        android:layout_height="62dp"
+        android:text="@string/créer_billet"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:srcCompat="@android:drawable/ic_menu_add"/>
+
 </LinearLayout>
