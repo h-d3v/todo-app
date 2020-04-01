@@ -7,6 +7,8 @@ public class SQLiteConnection {
     private static SQLiteDatabase sqLiteDatabaseEcriture;
     private static SQLiteDatabase sqLiteDatabaseLecture;
 
+    private SQLiteConnection(){}
+
     public static SQLiteDatabase getSqLiteDatabaseEcriture(Context context){
         if(sqLiteDatabaseEcriture==null || !sqLiteDatabaseEcriture.isOpen()){
             sqLiteDatabaseEcriture= new SQLiteDatabaseHandler(context).getWritableDatabase();
@@ -22,10 +24,18 @@ public class SQLiteConnection {
     }
 
     public static void close(){
-        if(sqLiteDatabaseLecture!=null || sqLiteDatabaseLecture.isOpen()){
-            sqLiteDatabaseLecture.close();
-            sqLiteDatabaseEcriture.close();
+        if(sqLiteDatabaseLecture!=null) {
+            if (sqLiteDatabaseLecture.isOpen()) {
+                sqLiteDatabaseLecture.close();
+            }
         }
+        if (sqLiteDatabaseEcriture!=null){
+            if(sqLiteDatabaseEcriture.isOpen()){
+                sqLiteDatabaseEcriture.close();
+            }
+        }
+
+
     }
 
 }
