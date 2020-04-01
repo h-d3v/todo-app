@@ -63,7 +63,6 @@ public class Modèle {
         this.context=context;
         this.daoFactory=daoFactory;
         projets=daoFactory.creerListeDAOProjet(context);
-
     }
 
     /**

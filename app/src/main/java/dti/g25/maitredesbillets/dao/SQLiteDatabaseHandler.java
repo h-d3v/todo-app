@@ -53,7 +53,7 @@ public class SQLiteDatabaseHandler extends SQLiteOpenHelper {
      *Constructeur
      * @param context
      */
-    public SQLiteDatabaseHandler(Context context) {
+    protected SQLiteDatabaseHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
