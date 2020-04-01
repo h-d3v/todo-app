@@ -15,13 +15,13 @@ public class BilletDAOSQLite implements DAO<Billet>{
 
     public BilletDAOSQLite(Context context, long idProjet){
         this.idProjet=idProjet;
-        sqLiteDatabaseEcriture= new SQLiteDatabaseHandler(context).getWritableDatabase();
-        sqLiteDatabaseLecture= new SQLiteDatabaseHandler(context).getReadableDatabase();
+        sqLiteDatabaseEcriture= SQLiteConnection.getSqLiteDatabaseEcriture(context);
+        sqLiteDatabaseLecture= SQLiteConnection.getSqLiteDatabaseLecture(context);
     }
 
     public BilletDAOSQLite(Context context, long id, long idProjet){
-        sqLiteDatabaseEcriture= new SQLiteDatabaseHandler(context).getWritableDatabase();
-        sqLiteDatabaseLecture= new SQLiteDatabaseHandler(context).getReadableDatabase();
+        sqLiteDatabaseEcriture= SQLiteConnection.getSqLiteDatabaseEcriture(context);
+        sqLiteDatabaseLecture= SQLiteConnection.getSqLiteDatabaseLecture(context);
         this.id=id;
         this.idProjet=idProjet;
     }

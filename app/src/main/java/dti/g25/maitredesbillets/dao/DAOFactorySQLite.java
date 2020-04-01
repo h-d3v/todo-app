@@ -21,7 +21,7 @@ public class DAOFactorySQLite extends DAOFactory {
     @Override
     public List<DAO<Projet>> creerListeDAOProjet(Context context) {
 
-        SQLiteDatabase sqLiteDatabase = new SQLiteDatabaseHandler(context).getReadableDatabase();
+        SQLiteDatabase sqLiteDatabase = SQLiteConnection.getSqLiteDatabaseLecture(context);
         LinkedList<DAO<Projet>> projets= new LinkedList<>();
         Cursor cursor = sqLiteDatabase.rawQuery("Select * from "+ SQLiteDatabaseHandler.EntreesProjet.NOM_TABLE, null);
         while (cursor.moveToNext()){
@@ -35,7 +35,7 @@ public class DAOFactorySQLite extends DAOFactory {
 
     @Override
     public List<DAO<Billet>> creerListeDAOBilletParProjet(Context context, DAO<Projet> projetDAO){
-        SQLiteDatabase sqLiteDatabase= new SQLiteDatabaseHandler(context).getReadableDatabase();
+        SQLiteDatabase sqLiteDatabase=  SQLiteConnection.getSqLiteDatabaseLecture(context);
         LinkedList<DAO<Billet>> billets= new LinkedList<DAO<Billet>>();
         Cursor cursor= sqLiteDatabase.rawQuery("select * from "+ SQLiteDatabaseHandler.EntreesBillet.NOM_TABLE+" where "+ SQLiteDatabaseHandler.EntreesBillet.NOM_COLONNE_PROJET_ID+" = " +projetDAO.getPK() , null );
         while(cursor.moveToNext()){
@@ -48,8 +48,6 @@ public class DAOFactorySQLite extends DAOFactory {
 
     @Override
     public Billet ajouterBilletAuProjet(Context context, DAO<Projet> unProjet, Billet unBillet) {
-        SQLiteDatabase sqLiteDatabase= new SQLiteDatabaseHandler(context).getWritableDatabase();
-
             BilletDAOSQLite billetDAOSQLite = new BilletDAOSQLite(context, unProjet.getPK());
             return billetDAOSQLite.creer(unBillet);
 

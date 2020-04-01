@@ -17,13 +17,13 @@ public class ProjetDAOSQLite  implements DAO<Projet> {
 
 
     public ProjetDAOSQLite(Context context){
-        sqLiteDatabaseEcriture= new SQLiteDatabaseHandler(context).getWritableDatabase();
-        sqLiteDatabaseLecture= new SQLiteDatabaseHandler(context).getReadableDatabase();
+        sqLiteDatabaseEcriture= SQLiteConnection.getSqLiteDatabaseEcriture(context);
+        sqLiteDatabaseLecture= SQLiteConnection.getSqLiteDatabaseLecture(context);
     }
 
     public ProjetDAOSQLite(Context context, long id){
-        sqLiteDatabaseEcriture= new SQLiteDatabaseHandler(context).getWritableDatabase();
-        sqLiteDatabaseLecture= new SQLiteDatabaseHandler(context).getReadableDatabase();
+        sqLiteDatabaseEcriture= SQLiteConnection.getSqLiteDatabaseEcriture(context);
+        sqLiteDatabaseLecture= SQLiteConnection.getSqLiteDatabaseLecture(context);
         this.id=id;
     }
 
