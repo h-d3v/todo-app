@@ -38,6 +38,7 @@ public class BilletDAOSQLiteTest {
         SQLiteDatabaseHandler sqLiteDatabaseHandler= new SQLiteDatabaseHandler(context);
         name= sqLiteDatabaseHandler.getDatabaseName();
         context.deleteDatabase(name);
+        SQLiteConnection.close();
     }
 
     @Test

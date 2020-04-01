@@ -12,7 +12,7 @@ import org.junit.runners.JUnit4;
 import static org.junit.Assert.*;
 @RunWith(JUnit4.class)
 public class ProjetDAOSQLiteTest {
-    String name ="";
+    String path ="";
     Projet projetCobaye;
     ProjetDAOSQLite projetDAOSQLiteCobaye;
     Context context;
@@ -21,8 +21,8 @@ public class ProjetDAOSQLiteTest {
     public  void setUp(){
         context = ApplicationProvider.getApplicationContext();
         SQLiteDatabaseHandler sqLiteDatabaseHandler= new SQLiteDatabaseHandler(context);
-        name= sqLiteDatabaseHandler.getDatabaseName();
-        context.deleteDatabase(name);
+        path= sqLiteDatabaseHandler.getWritableDatabase().getPath();
+        context.deleteDatabase(path);
         projetCobaye= new Projet("titre");
         projetDAOSQLiteCobaye = new ProjetDAOSQLite(context);
 
@@ -32,8 +32,9 @@ public class ProjetDAOSQLiteTest {
     public void tearDown(){
         context = ApplicationProvider.getApplicationContext();
         SQLiteDatabaseHandler sqLiteDatabaseHandler= new SQLiteDatabaseHandler(context);
-        name= sqLiteDatabaseHandler.getDatabaseName();
-        context.deleteDatabase(name);
+        path= sqLiteDatabaseHandler.getWritableDatabase().getPath();
+        context.deleteDatabase(path);
+        SQLiteConnection.close();
     }
 
 
@@ -68,7 +69,8 @@ public class ProjetDAOSQLiteTest {
 
     @Test
     public void getPK() {
+
         projetDAOSQLiteCobaye.creer(new Projet("tittre"));
-        assertEquals(projetDAOSQLiteCobaye.getPK(), 1);
+        assertEquals(1, projetDAOSQLiteCobaye.getPK());
     }
 }
