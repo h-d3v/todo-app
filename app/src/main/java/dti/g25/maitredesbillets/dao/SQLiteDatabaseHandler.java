@@ -4,7 +4,15 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+/***
+ * Classe permettant la creation d'une base de donnee SQLite liee a l'application
+ */
 public class SQLiteDatabaseHandler extends SQLiteOpenHelper {
+    /***
+     * Valeurs constantes par defaut
+     * Toutes modifications du script de la base de donnee doit passer par la modification de ces constantes seulement
+     */
+
     public static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "maitredesbillets.db";
 
@@ -41,17 +49,30 @@ public class SQLiteDatabaseHandler extends SQLiteOpenHelper {
 
     public static final String SQL_DROP_TABLE_PROJET = "DROP TABLE IF EXISTS " + EntreesProjet.NOM_TABLE + ";";
 
-
+    /***
+     *Constructeur
+     * @param context
+     */
     public SQLiteDatabaseHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
+    /***
+     *Execution des scripts de creation de la base de donnee
+     * @param sqLiteDatabase
+     */
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL(SQL_CREATE_TABLE_PROJET);
         sqLiteDatabase.execSQL(SQL_CREATE_TABLE_BILLET);
     }
 
+    /***
+     *Execution des scripts de modification de la base de donnee en cas d'upgrade de version
+     * @param sqLiteDatabase
+     * @param i
+     * @param i1
+     */
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         sqLiteDatabase.execSQL(SQL_DROP_TABLE_BILLET);
@@ -59,6 +80,12 @@ public class SQLiteDatabaseHandler extends SQLiteOpenHelper {
         onCreate(sqLiteDatabase);
     }
 
+    /***
+     *Execution des scripts de modification de la base de donnee en cas de downgrade de version
+     * @param sqLiteDatabase
+     * @param i
+     * @param i1
+     */
     public void onDowngrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         onUpgrade(sqLiteDatabase, i1, i);
     }

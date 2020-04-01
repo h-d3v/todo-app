@@ -5,20 +5,37 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import dti.g25.maitredesbillets.domaine.entité.Billet;
-import dti.g25.maitredesbillets.modele.dao.DAO;
+import dti.g25.maitredesbillets.présentation.modèle.dao.DAO;
+
+/***
+ * Classe objet d'acces aux donnees de type Billet fonctionnant avec la base de donnee SQLite cree par l'application
+ */
 
 public class BilletDAOSQLite implements DAO<Billet>{
     private long id=-1;
-    private long idProjet=-1;
+    private long idProjet;
     SQLiteDatabase sqLiteDatabaseEcriture;
     SQLiteDatabase sqLiteDatabaseLecture;
 
+    /***
+     * Constructeur
+     *
+     * @param context
+     * @param idProjet
+     */
     public BilletDAOSQLite(Context context, long idProjet){
         this.idProjet=idProjet;
         sqLiteDatabaseEcriture= SQLiteConnection.getSqLiteDatabaseEcriture(context);
         sqLiteDatabaseLecture= SQLiteConnection.getSqLiteDatabaseLecture(context);
     }
 
+    /***
+     *Constructeur
+     *
+     * @param context
+     * @param id
+     * @param idProjet
+     */
     public BilletDAOSQLite(Context context, long id, long idProjet){
         sqLiteDatabaseEcriture= SQLiteConnection.getSqLiteDatabaseEcriture(context);
         sqLiteDatabaseLecture= SQLiteConnection.getSqLiteDatabaseLecture(context);
@@ -26,7 +43,12 @@ public class BilletDAOSQLite implements DAO<Billet>{
         this.idProjet=idProjet;
     }
 
-
+    /***
+     *
+     * @param unBillet   l'oblet a creer dans la base de donnee
+     * @return Billet l'objet tel qui l'a ete cree dans la base de donnee, null si non cree
+     *
+     */
     @Override
     public Billet creer(Billet unBillet) {
         ContentValues contentValues = new ContentValues();
@@ -37,6 +59,11 @@ public class BilletDAOSQLite implements DAO<Billet>{
         return lire();
     }
 
+    /***
+     *
+     * @return Billet l'objet tel qui l'est dans la base de donnee, null si non existant dans la base de donne
+     *
+     */
     @Override
     public Billet lire() {
         Billet billet = null;
@@ -55,6 +82,12 @@ public class BilletDAOSQLite implements DAO<Billet>{
         return billet;
     }
 
+    /***
+     *
+     * @param billet l'objet tel qui doit etre modifie
+     * @return Billet l'objet tel qui l'a ete modifie dans la base de donnee, null si l'objet est inexistant dans la BD
+     *
+     */
     @Override
     public Billet modifier(Billet billet) {
 
@@ -65,12 +98,21 @@ public class BilletDAOSQLite implements DAO<Billet>{
         return lire();
     }
 
+    /***
+     *supprime l'objet de la base de donnee
+     * @return boolean true si supprime, false sinon
+     */
     @Override
     public boolean supprimer() {
         int nbSupp = sqLiteDatabaseEcriture.delete(SQLiteDatabaseHandler.EntreesBillet.NOM_TABLE, SQLiteDatabaseHandler.EntreesBillet.NOM_COLONNE_ID+" = ?",new String[]{String.valueOf(id)});
         return nbSupp >0;
     }
 
+    /***
+     *
+     * @return long la cle primaire de l'objet associe a la base de donnee
+     *
+     */
     @Override
     public long getPK() {
         return id;

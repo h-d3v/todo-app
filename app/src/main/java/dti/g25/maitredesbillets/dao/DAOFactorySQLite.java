@@ -5,19 +5,30 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import dti.g25.maitredesbillets.domaine.entité.Billet;
 import dti.g25.maitredesbillets.domaine.entité.Projet;
-import dti.g25.maitredesbillets.modele.dao.DAO;
-import dti.g25.maitredesbillets.modele.dao.DAOFactory;
-
-
+import dti.g25.maitredesbillets.présentation.modèle.dao.DAO;
+import dti.g25.maitredesbillets.présentation.modèle.dao.DAOFactory;
 import java.util.LinkedList;
 import java.util.List;
 
+/***
+ *Factory permettant de creer des objets d'acces aux donnees avec SQLite
+ */
 public class DAOFactorySQLite extends DAOFactory {
+    /***
+     *
+     * @param context
+     * @return DAO<Projet>
+     */
     @Override
     public DAO<Projet> creerDAOProjet(Context context) {
         return new ProjetDAOSQLite(context);
     }
 
+    /***
+     *
+     * @param context
+     * @return List<DAO<Projet>>
+     */
     @Override
     public List<DAO<Projet>> creerListeDAOProjet(Context context) {
 
@@ -32,7 +43,12 @@ public class DAOFactorySQLite extends DAOFactory {
         return projets;
     }
 
-
+    /***
+     *
+     * @param context
+     * @param projetDAO
+     * @return List<DAO<Billet>> une liste de billet selon son projet associe
+     */
     @Override
     public List<DAO<Billet>> creerListeDAOBilletParProjet(Context context, DAO<Projet> projetDAO){
         SQLiteDatabase sqLiteDatabase=  SQLiteConnection.getSqLiteDatabaseLecture(context);
@@ -46,6 +62,13 @@ public class DAOFactorySQLite extends DAOFactory {
         return billets;
     }
 
+    /***
+     *
+     * @param context
+     * @param unProjet
+     * @param unBillet
+     * @return
+     */
     @Override
     public Billet ajouterBilletAuProjet(Context context, DAO<Projet> unProjet, Billet unBillet) {
             BilletDAOSQLite billetDAOSQLite = new BilletDAOSQLite(context, unProjet.getPK());
