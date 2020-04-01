@@ -18,7 +18,7 @@ public class ProjetDAOSQLiteTest {
     Context context;
 
     @Before
-    public  void initSqlDbHandler(){
+    public  void setUp(){
         context = ApplicationProvider.getApplicationContext();
         SQLiteDatabaseHandler sqLiteDatabaseHandler= new SQLiteDatabaseHandler(context);
         name= sqLiteDatabaseHandler.getDatabaseName();
@@ -29,7 +29,7 @@ public class ProjetDAOSQLiteTest {
     }
 
     @After
-    public void terminerTest(){
+    public void tearDown(){
         context = ApplicationProvider.getApplicationContext();
         SQLiteDatabaseHandler sqLiteDatabaseHandler= new SQLiteDatabaseHandler(context);
         name= sqLiteDatabaseHandler.getDatabaseName();

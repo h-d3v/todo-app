@@ -82,7 +82,6 @@ public class PrésenteurVoirBillet implements ContratVuePrésenteurVoirBillet.IP
         if (requestCode==REQUEST_CODE_AJOUTER_BILLET&&resultCode==Activity.RESULT_OK){
             String titreBillet=data.getStringExtra(EXTRA_TITRE_BILLET);
             String descriptionBillet= data.getStringExtra(EXTRA_DESCRIPTION_BILLET);
-            new CréationBillet();
             Billet billet= CréationBillet.créerBillet(titreBillet,descriptionBillet);
             modèle.ajouterDAOBillet(positionProjet, billet);
             modèle.setDaoBillets(positionProjet);
