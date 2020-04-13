@@ -43,28 +43,28 @@ public class BilletDAOSQLiteTest {
 
     @Test
     public void creer() {
-        assertEquals(billetCobaye1.getTitre(), billetDAOSQLiteCobaye1.creer(billetCobaye1).getTitre());
+        assertEquals(billetCobaye1, billetDAOSQLiteCobaye1.creer(billetCobaye1));
     }
 
     @Test
     public void lire() {
         assertNull(billetDAOSQLiteCobaye1.lire());
         billetDAOSQLiteCobaye1.creer(billetCobaye1);
-        assertEquals(billetCobaye1.getTitre(), billetDAOSQLiteCobaye1.lire().getTitre());
+        assertEquals(billetCobaye1, billetDAOSQLiteCobaye1.lire());
     }
 
     @Test
     public void modifier() {
         billetDAOSQLiteCobaye1.creer(billetCobaye1);
         Billet billetModifie= billetDAOSQLiteCobaye1.modifier(billetCobaye2);
-        assertEquals(billetCobaye2.getTitre(), billetModifie.getTitre());
+        assertEquals(billetCobaye2, billetModifie);
     }
 
     @Test
     public void supprimer() {
         assertNull(billetDAOSQLiteCobaye1.lire());
         billetDAOSQLiteCobaye1.creer(billetCobaye1);
-        assertEquals(billetCobaye1.getTitre(), billetDAOSQLiteCobaye1.lire().getTitre());
+        assertEquals(billetCobaye1, billetDAOSQLiteCobaye1.lire());
         assertTrue(billetDAOSQLiteCobaye1.supprimer());
         assertNull(billetDAOSQLiteCobaye1.lire());
     }

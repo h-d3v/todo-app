@@ -8,11 +8,11 @@ import static org.junit.Assert.*;
 
 public class BilletTest {
 
-    Billet billetDeTest = new Billet("le Titre", "Une courte description", 1, 1);
+    Billet billetDeTest = new Billet("le Titre","Une courte description",1);
 
     @Test
     public void creation_fonctionne() {
-        assertEquals(billetDeTest, new Billet("le Titre", "Une courte description", 1, 1));
+        assertEquals(billetDeTest, new Billet("le Titre", "Une courte description", 1));
     }
 
     @Test

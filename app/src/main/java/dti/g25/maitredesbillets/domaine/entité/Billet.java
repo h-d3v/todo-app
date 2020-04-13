@@ -1,79 +1,120 @@
 package dti.g25.maitredesbillets.domaine.entité;
 
+import android.os.Build;
+import androidx.annotation.RequiresApi;
+
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 public class Billet {
     private String titre;  private String description;
     private boolean enCours;
-    private int ticketId;
     private int projetId;
-    private ArrayList<Tag> tags;
+    private List<Tag> tags;
 
 
-    /**
-     *
-     */
+
     public Billet() {
         this.titre = "";
         this.description = "";
         this.enCours = true;
-        this.ticketId = 1;
         this.projetId = 1;
+        this.tags=new ArrayList<>();
     }
 
-    //Constructeur + que minimum
+
+
+    /***
+     *  Constructeur + que minimum
+     * @param titre
+     * @param description
+     */
     public Billet(String titre, String description){
         this.titre = titre;
         this.description = description;
+        this.tags=new ArrayList<>();
     }
 
-    //Constructeur minimum
-    public Billet(String titre, String description, int ticketId, int projetId) {
+
+    /****
+     * Constructeur minimum
+     * @param titre
+     * @param description
+     * @param projetId
+     */
+    public Billet(String titre, String description, int projetId) {
         this.titre = titre;
         this.description = description;
         this.enCours = true; //Un tickets sera toujours en cours juqu'à tant qu'il soit fermé
-        this.ticketId = ticketId;
         this.projetId = projetId;
-        this.tags = new ArrayList();
+        this.tags=new ArrayList<>();
         // Il n'est pas impératif que le billet aie des tags
     }
 
-    //Constructeur complet
-    public Billet(String titre, String description, boolean enCours, int ticketId, int projetId, ArrayList<Tag> tags) {
+    /***
+     * /Constructeur complet
+     * @param titre
+     * @param description
+     * @param enCours
+     * @param ticketId
+     * @param projetId
+     * @param tags
+     */
+    public Billet(String titre, String description, boolean enCours, int ticketId, int projetId, List<Tag> tags) {
         this.titre = titre;
         this.description = description;
         this.enCours = enCours;
-        this.ticketId = ticketId;
         this.projetId = projetId;
         this.tags = tags;
     }
 
-    //Getters
+    /***
+     *
+     * @return le titre du billet
+     */
     public String getTitre() {
         return titre;
     }
 
+    /***
+     *
+     * @return  La description du billet
+     */
     public String getDescription() {
         return description;
     }
 
+    /***
+     *
+     * @return bollean le billet est en cours
+     */
     public boolean estEnCours() {
         return enCours;
     }
 
-    public int getTicketId() {
-        return ticketId;
-    }
-
+    /***
+     *
+     * @return id du projet associe
+     */
     public int getProjetId() {
         return projetId;
     }
 
-    public ArrayList<Tag> getTags() {
+    /***
+     * Les tags associes au bilet
+     * @return
+     */
+    public List<Tag> getTags() {
         return tags;
     }
 
     //Setters
+
+    /***
+     *
+     * @param titre
+     */
     public void setTitre(String titre) {
         if(titre == "" || titre == null){
 
@@ -82,6 +123,10 @@ public class Billet {
         }
     }
 
+    /***
+     *
+     * @param description
+     */
     public void setDescription(String description) {
         if(titre == "" || titre == null){
 
@@ -90,28 +135,42 @@ public class Billet {
         }
     }
 
+    /***
+     *
+     * @param enCours
+     */
     public void setEnCours(boolean enCours) {
         this.enCours = enCours;
     }
 
-    public void setTicketId(int ticketId) {
-        this.ticketId = ticketId;
-    }
-
+    /***
+     *
+     * @param projetId
+     */
     public void setProjetId(int projetId) {
         this.projetId = projetId;
     }
 
-    public void setTags(ArrayList<Tag> tags) {
+    /***
+     *
+     * @param tags
+     */
+    public void setTags(List<Tag> tags) {
         this.tags = tags;
     }
 
     //méthode
 
+    /***
+     * ferme le billet met enCours a false
+     */
     public void fermer(){
         this.enCours = false;
     }
 
+    /***
+     * ouvre le billet met enCours a true
+     */
     public void ouvrir(){
         this.enCours = true;
     }
@@ -120,6 +179,10 @@ public class Billet {
         tags.add(tag);
     }
 
+    /**
+     * supprime une etiquette
+     * @param tag
+     */
     public void retirerTag(Tag tag){
         if(tag == null){
 
@@ -131,4 +194,20 @@ public class Billet {
             }
         }
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Billet billet = (Billet) o;
+
+        if (enCours != billet.enCours) return false;
+        if (projetId != billet.projetId) return false;
+        if (!titre.equals(billet.titre)) return false;
+        if (!description.equals(billet.description)) return false;
+        return tags.equals(billet.tags);
+    }
+
+
 }
