@@ -23,8 +23,12 @@ public class créerBilletActivity extends AppCompatActivity {
     private PrésenteurCréerBillet présenteur;
 
     /**
+<<<<<<< HEAD
      * Initialise la vue pour l'activité Créer billet ansi que le présenteur
      * pour la vue
+=======
+     * Créer la forme du formulaire pour créer un billet
+>>>>>>> 22-swipe-pour-supprimer-un-billet
      * @param savedInstanceState
      */
     @Override
@@ -44,6 +48,9 @@ public class créerBilletActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * debute l'activité de creation d'un novueau billet
+     */
     @Override
     protected void onStart(){
         super.onStart();

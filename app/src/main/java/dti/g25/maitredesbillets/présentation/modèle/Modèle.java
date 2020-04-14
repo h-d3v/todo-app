@@ -17,22 +17,23 @@ public class Modèle {
     DAOFactory daoFactory;
 
     /**
-     * Ajouter le billet en paramètre au projet en paramètre à l'aide du DAO
-     * @param projetPosition le projet auquel sera ajouté le billet
-     * @param billet le billet qui sera ajouté au projet
+     * permet d'ajouter un billet au DAO
+     * @param projetPosition positon du projet actuel
+     * @param billet le billet a ajouter
      */
     public void ajouterDAOBillet(int projetPosition, Billet billet){
         daoFactory.ajouterBilletAuProjet(context,getProjetDAOParPos(projetPosition), billet);
     }
 
     /**
-     * Modifie les informations du billet (Insere un nouveau objet billet a la place exacte de son prédécesseur)
-     * @param positionProjet la position du projet contenant le billet à modifier
-     * @param positionBillet la position du billet à modifier
-     * @param titre le (nouveau) tire du billet
-     * @param description la (nouvelle) description du billet
+     * Permet de modifier les paramêtre d'un billet
+     * @param positionProjet La postion du projet actuel
+     * @param positionBillet la postion du billet modifié
+     * @param titre le nouveau titre du billet
+     * @param description la nouvelle description du billet
+     * @throws Exception
      */
-    public void modifierBillets(int positionProjet, int positionBillet, String titre, String description){
+    public void modifierBillets(int positionProjet, int positionBillet, String titre, String description) throws  Exception{
         Billet billet =  CréationBillet.créerBillet(titre, description);
         if(positionBillet > -1){
             getProjetParPos(positionProjet).getBillets().set(positionBillet, billet);
@@ -40,7 +41,7 @@ public class Modèle {
     }
 
 
-    public void modifierDAOBillets(int positionProjet, int positionBillet, String titre, String description){
+    public void modifierDAOBillets(int positionProjet, int positionBillet, String titre, String description) throws  Exception{
         Billet billet =  CréationBillet.créerBillet(titre, description);
         if(positionBillet > -1){
             getDAOBillets(positionProjet).get(positionBillet).modifier(billet);
@@ -48,30 +49,35 @@ public class Modèle {
     }
 
     /**
-     * Permet d'effacer un Billet pour un projet donné
-     * @param positionProjet la position du projet contenant le billet à retirer
-     * @param positionBillet la position du billet à retirer
+     * permet de suprimmer  un billet de la lsite de billet
+     * @param positionBillet la postion du billet à supprimer
      */
-    public void supprimerBillet(int positionProjet, int positionBillet){
-        getProjetParPos(positionProjet).getBillets().remove(getProjetParPos(positionProjet).getBillets().get(positionBillet));
+    public void supprimerBillet(int positionBillet){
+        billets.get(positionBillet).supprimer();
     }
 
     /**
-     * Liste des billets pour un projet donné
-     * @param positionProjet l'emplacement d'un projet
-     * @return La lsite des Billets en format "List"
+     * prmet d'obtenir tout les billet d'un projet
+     * @param positionProjet
+     * @return la lsite de billet
      */
     public List<Billet> getBillets(int positionProjet){
         return getProjetParPos(positionProjet).getBillets();
     }
+
+    /**
+     * Permet d'obtenir tout les billet du projet dans la BD
+     * @param positionProjet positon du projet actuel
+     * @return la liste de billets
+     */
     public List<DAO<Billet>> getDAOBillets(int positionProjet){
         return daoFactory.creerListeDAOBilletParProjet(context, getProjetDAOParPos(positionProjet));
     }
 
-
-    public void setBillets(int positionProjet, List<Billet> billets){
-         getProjetParPos(positionProjet).setBillets(billets);
-    }
+    /**
+     * Permet de cahnger les bilelt de la bd
+     * @param positionProjet la postion du projet acutellement
+     */
     public void setDaoBillets(int positionProjet){
         billets= daoFactory.creerListeDAOBilletParProjet(context, getProjetDAOParPos(positionProjet));
     }
@@ -110,6 +116,11 @@ public class Modèle {
         return projets.get(position).lire();
     }
 
+    /**
+     * Permet d'obtenir un projet par sa postion dnas la lsite
+     * @param position la postion d'un Projet
+     * @return le projet
+     */
     public DAO<Projet> getProjetDAOParPos(int position){return projets.get(position);}
 
     /**

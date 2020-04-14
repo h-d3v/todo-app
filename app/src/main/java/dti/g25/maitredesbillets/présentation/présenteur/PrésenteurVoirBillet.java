@@ -50,8 +50,8 @@ public class PrésenteurVoirBillet implements ContratVuePrésenteurVoirBillet.IP
     }
 
     /**
-     *  Crée la requete pour afficher un projet
-     * @param position
+     * permet d'afficher les détail d'un billet
+     * @param position la positon du billet
      */
     @Override
     public void requêteAfficherDétailBillet(int position) {
@@ -64,7 +64,9 @@ public class PrésenteurVoirBillet implements ContratVuePrésenteurVoirBillet.IP
      */
     @Override
     public void requêteSupprimerBillet(int position) {
-        modèle.supprimerBillet(positionProjet, position);
+        modèle.supprimerBillet(position);
+        modèle.rafraichir();
+        vue.rafraîchir();
     }
 
     /**
@@ -76,20 +78,9 @@ public class PrésenteurVoirBillet implements ContratVuePrésenteurVoirBillet.IP
 
     }
 
-    /*
-    @Override
-    public void requêteCréerBillet() {
-        CréationBillet interacteur=new CréationBillet();
-        Billet billet=interacteur.créerBillet("Bruh", "ok", 2, 3);
-        ArrayList<Billet> billets = modèle.getBillets();
-        billets.add(billet);
-        modèle.setBillets(billets);
-        vue.rafraîchir();
-    }
-    */
-
     /**
-     * @return Le nombre de billets en int
+     * Permet d'obtenir le nombre de bilelt présent dans un projet
+     * @return le nombre de billet dans un projet
      */
     @Override
     public int getNombreItems() {
@@ -107,7 +98,14 @@ public class PrésenteurVoirBillet implements ContratVuePrésenteurVoirBillet.IP
         activité.startActivityForResult(intentModif, REQUEST_CODE_AJOUTER_BILLET);
     }
 
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    /**
+     * traite ;es novelle donné lorsque l'on revien d'une autre activité
+     * @param requestCode le code de la requete
+     * @param resultCode le code du résultat de la reuqete
+     * @param data toute donné de l'activité qui viens de s'arrêter
+     * @throws Exception Totu ce qui pourait être mauvais avec le billet
+     */
+    public void onActivityResult(int requestCode, int resultCode, Intent data) throws  Exception{
 
         if (requestCode==REQUEST_CODE_AJOUTER_BILLET&&resultCode==Activity.RESULT_OK){
             String titreBillet=data.getStringExtra(EXTRA_TITRE_BILLET);

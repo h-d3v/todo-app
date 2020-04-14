@@ -32,8 +32,9 @@ public class PrésenteurCréerBillet implements ContratVuePrésenteurCréerBille
     }
 
     /**
-     * Termine l'ecran d'édition du billet
+     *Termine l'acitivté de création d'un nouveau billet
      */
+
     @Override
     public void terminerÉdition() {
         Intent donnéesRetour=new Intent();
@@ -44,6 +45,9 @@ public class PrésenteurCréerBillet implements ContratVuePrésenteurCréerBille
         activité.finish();
     }
 
+    /**
+     *Commence l'acitivté de création d'un nouveau billet
+     */
     @Override
     public void commencerCréeation(int position) {
         this.position = position;

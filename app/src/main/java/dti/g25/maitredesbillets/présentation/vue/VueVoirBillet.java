@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.graphics.Canvas;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.view.View;
@@ -60,6 +61,8 @@ public class VueVoirBillet extends Fragment implements ContratVuePrésenteurVoir
             }
         });
 
+        ItemTouchHelper itemTouchHelper= new ItemTouchHelper(simpleCallback);
+        itemTouchHelper.attachToRecyclerView(rvBillets);
         return vue;
     }
 
@@ -72,10 +75,6 @@ public class VueVoirBillet extends Fragment implements ContratVuePrésenteurVoir
             billetAdapter.notifyDataSetChanged();
     }
 
-    @Override
-    public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-
-    }
 
     /**
      * crée le swipe gauche pour le rv
@@ -127,6 +126,5 @@ public class VueVoirBillet extends Fragment implements ContratVuePrésenteurVoir
             super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
         }
     };
-
 
 }
