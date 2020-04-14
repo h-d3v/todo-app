@@ -16,10 +16,23 @@ public class Modèle {
     Context context;
     DAOFactory daoFactory;
 
+    /**
+     * permet d'ajouter un billet au DAO
+     * @param projetPosition positon du projet actuel
+     * @param billet le billet a ajouter
+     */
     public void ajouterDAOBillet(int projetPosition, Billet billet){
         daoFactory.ajouterBilletAuProjet(context,getProjetDAOParPos(projetPosition), billet);
     }
 
+    /**
+     * Permet de modifier les paramêtre d'un billet
+     * @param positionProjet La postion du projet actuel
+     * @param positionBillet la postion du billet modifié
+     * @param titre le nouveau titre du billet
+     * @param description la nouvelle description du billet
+     * @throws Exception
+     */
     public void modifierBillets(int positionProjet, int positionBillet, String titre, String description) throws  Exception{
         Billet billet =  CréationBillet.créerBillet(titre, description);
         if(positionBillet > -1){
@@ -35,22 +48,36 @@ public class Modèle {
         }
     }
 
+    /**
+     * permet de suprimmer  un billet de la lsite de billet
+     * @param positionBillet la postion du billet à supprimer
+     */
     public void supprimerBillet(int positionBillet){
         billets.get(positionBillet).supprimer();
     }
 
+    /**
+     * prmet d'obtenir tout les billet d'un projet
+     * @param positionProjet
+     * @return la lsite de billet
+     */
     public List<Billet> getBillets(int positionProjet){
         return getProjetParPos(positionProjet).getBillets();
     }
 
+    /**
+     * Permet d'obtenir tout les billet du projet dans la BD
+     * @param positionProjet positon du projet actuel
+     * @return la liste de billets
+     */
     public List<DAO<Billet>> getDAOBillets(int positionProjet){
         return daoFactory.creerListeDAOBilletParProjet(context, getProjetDAOParPos(positionProjet));
     }
 
-
-    public void setBillets(int positionProjet, List<Billet> billets){
-         getProjetParPos(positionProjet).setBillets(billets);
-    }
+    /**
+     * Permet de cahnger les bilelt de la bd
+     * @param positionProjet la postion du projet acutellement
+     */
     public void setDaoBillets(int positionProjet){
         billets= daoFactory.creerListeDAOBilletParProjet(context, getProjetDAOParPos(positionProjet));
     }
@@ -89,15 +116,11 @@ public class Modèle {
         return projets.get(position).lire();
     }
 
-
     /**
-     * @param position la position du billet dans la liste bille
-     * @return le projet à la position passée en param
+     * Permet d'obtenir un projet par sa postion dnas la lsite
+     * @param position la postion d'un Projet
+     * @return le projet
      */
-    public Projet getBilletParPos(int positionProjet, int positionBillet){
-        return getProjetParPos(positionProjet);
-    }
-
     public DAO<Projet> getProjetDAOParPos(int position){return projets.get(position);}
 
     /**

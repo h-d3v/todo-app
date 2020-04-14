@@ -16,6 +16,11 @@ import dti.g25.maitredesbillets.présentation.présenteur.PrésenteurVoirBillet;
 import dti.g25.maitredesbillets.présentation.vue.VueVoirBillet;
 public class voirBilletActivity extends AppCompatActivity {
     PrésenteurVoirBillet présenteur;
+
+    /**
+     * créer la forme de l'application
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +38,12 @@ public class voirBilletActivity extends AppCompatActivity {
         ft.commit();
     }
 
+    /**
+     * Prend tout les réseultat des activité qui viens de se terminer
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         try {

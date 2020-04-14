@@ -22,6 +22,10 @@ public class créerBilletActivity extends AppCompatActivity {
 
     private PrésenteurCréerBillet présenteur;
 
+    /**
+     * Créer la forme du formulaire pour créer un billet
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +43,9 @@ public class créerBilletActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * debute l'activité de creation d'un novueau billet
+     */
     @Override
     protected void onStart(){
         super.onStart();

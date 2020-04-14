@@ -4,13 +4,8 @@ import dti.g25.maitredesbillets.domaine.entité.Billet;
 
 public class CréationBillet {
 
-    public Billet créerBillet(String titre, String description, int ticketId, int projetId){
-        return new Billet(titre, description, ticketId, projetId);
-    }
-
-
     /**
-     * Créer un billet seulement avec un titr4
+     * Créer un billet seulement avec un titre et une description
      * @param titre le titre du billet
      * @param description la description du billet
      * @throws Exception si le projet est null ou son nouveau titre vide

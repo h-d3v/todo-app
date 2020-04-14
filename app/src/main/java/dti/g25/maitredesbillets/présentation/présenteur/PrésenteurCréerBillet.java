@@ -19,11 +19,21 @@ public class PrésenteurCréerBillet implements ContratVuePrésenteurCréerBille
 
     private int position;
 
+    /**
+     * creer le présenteur
+     * @param activité  Activité avec lequel le présenteur interagis
+     * @param vue Vue avec lequel le présenteur interagis
+     * @param modèle modèle avec lequel le présenteur interagis
+     */
     public PrésenteurCréerBillet(Activity activité, ContratVuePrésenteurCréerBillet.IVueCréerBillet vue, Modèle modèle) {
         this.activité=activité;
         this.vue=vue;
         this.modèle=modèle;
     }
+
+    /**
+     *Termine l'acitivté de création d'un nouveau billet
+     */
 
     @Override
     public void terminerÉdition() {
@@ -35,6 +45,9 @@ public class PrésenteurCréerBillet implements ContratVuePrésenteurCréerBille
         activité.finish();
     }
 
+    /**
+     *Commence l'acitivté de création d'un nouveau billet
+     */
     @Override
     public void commencerCréeation(int position) {
         this.position = position;
