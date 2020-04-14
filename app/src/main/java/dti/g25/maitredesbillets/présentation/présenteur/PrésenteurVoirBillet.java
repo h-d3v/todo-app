@@ -24,6 +24,13 @@ public class PrésenteurVoirBillet implements ContratVuePrésenteurVoirBillet.IP
 
     private int positionProjet;
 
+    /**
+     * Constructeur du presentateur du billet
+     * @param activité Activité dans laquelle le billet agit
+     * @param vue  La vue qui est relié au billet, qui sera la vue principale
+     * @param modèle le modele du MVP
+     * @param positionProjet l'emplacement du projet en int
+     */
     public PrésenteurVoirBillet(Activity activité, ContratVuePrésenteurVoirBillet.IVueVoirBille vue, Modèle modèle, int positionProjet) {
         this.activité=activité;
         this.modèle=modèle;
@@ -32,21 +39,38 @@ public class PrésenteurVoirBillet implements ContratVuePrésenteurVoirBillet.IP
         this.positionProjet = positionProjet;
     }
 
+    /**
+     *
+     * @param position position du billet
+     * @return le titre du billet en String
+     */
     @Override
     public String getTitreBillet(int position) {
         return modèle.getDAOBillets(positionProjet).get(position).lire().getTitre();
     }
 
+    /**
+     *  Crée la requete pour afficher un projet
+     * @param position
+     */
     @Override
     public void requêteAfficherDétailBillet(int position) {
 
     }
 
+    /**
+     * Supprime le billet du modele et raffraichit la vue
+     * @param position position du billet
+     */
     @Override
     public void requêteSupprimerBillet(int position) {
         modèle.supprimerBillet(positionProjet, position);
     }
 
+    /**
+     * Crée l'intention pour modifier un projet et débutel 'activité
+     * @param position position du billet
+     */
     @Override
     public void requêteModifierBillet(int position) {
 
@@ -64,6 +88,9 @@ public class PrésenteurVoirBillet implements ContratVuePrésenteurVoirBillet.IP
     }
     */
 
+    /**
+     * @return Le nombre de billets en int
+     */
     @Override
     public int getNombreItems() {
         if(modèle.getBillets(positionProjet) == null)
@@ -71,6 +98,9 @@ public class PrésenteurVoirBillet implements ContratVuePrésenteurVoirBillet.IP
         return modèle.getDAOBillets(positionProjet).size();
     }
 
+    /**
+     * Crée l'intention pour la création d'un billet
+     */
     @Override
     public void requêteCréerBillet() {
         Intent intentModif=new Intent(activité, créerBilletActivity.class);

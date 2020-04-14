@@ -22,6 +22,11 @@ public class créerBilletActivity extends AppCompatActivity {
 
     private PrésenteurCréerBillet présenteur;
 
+    /**
+     * Initialise la vue pour l'activité Créer billet ansi que le présenteur
+     * pour la vue
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

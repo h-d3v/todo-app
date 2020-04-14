@@ -14,7 +14,6 @@ public class Billet {
     private List<Tag> tags;
 
 
-
     public Billet() {
         this.titre = "";
         this.description = "";
@@ -25,10 +24,10 @@ public class Billet {
 
 
 
-    /***
-     *  Constructeur + que minimum
-     * @param titre
-     * @param description
+    /**
+     * Constructeur de billet seulement avec un nom et une description
+     * @param titre Le nom du billet
+     * @param description La description detaillée  du billet
      */
     public Billet(String titre, String description){
         this.titre = titre;
@@ -36,21 +35,6 @@ public class Billet {
         this.tags=new ArrayList<>();
     }
 
-
-    /****
-     * Constructeur minimum
-     * @param titre
-     * @param description
-     * @param projetId
-     */
-    public Billet(String titre, String description, int projetId) {
-        this.titre = titre;
-        this.description = description;
-        this.enCours = true; //Un tickets sera toujours en cours juqu'à tant qu'il soit fermé
-        this.projetId = projetId;
-        this.tags=new ArrayList<>();
-        // Il n'est pas impératif que le billet aie des tags
-    }
 
     /***
      * /Constructeur complet
@@ -73,29 +57,35 @@ public class Billet {
      *
      * @return le titre du billet
      */
+
+    /**
+     *
+     * @return Nom du billet en String
+     */
     public String getTitre() {
         return titre;
     }
 
-    /***
+    /**
      *
-     * @return  La description du billet
+     * @return Descritopn du billet en String
      */
     public String getDescription() {
         return description;
     }
 
-    /***
+    /**
      *
-     * @return bollean le billet est en cours
+     * @return État du billet en Boléen
      */
     public boolean estEnCours() {
         return enCours;
     }
 
-    /***
+
+    /**
      *
-     * @return id du projet associe
+     * @return ID du Projet en int
      */
     public int getProjetId() {
         return projetId;
@@ -109,11 +99,9 @@ public class Billet {
         return tags;
     }
 
-    //Setters
-
-    /***
+    /**
      *
-     * @param titre
+     * @param titre le nom du billet en String
      */
     public void setTitre(String titre) {
         if(titre == "" || titre == null){
@@ -123,9 +111,9 @@ public class Billet {
         }
     }
 
-    /***
+    /**
      *
-     * @param description
+     * @param description La description du billet en String
      */
     public void setDescription(String description) {
         if(titre == "" || titre == null){
@@ -135,46 +123,50 @@ public class Billet {
         }
     }
 
-    /***
+    /**
      *
-     * @param enCours
+     * @param enCours L'état du billet en boléen
      */
     public void setEnCours(boolean enCours) {
         this.enCours = enCours;
     }
 
-    /***
+
+    /**
      *
-     * @param projetId
+     * @param projetId le ID du projet en int
      */
     public void setProjetId(int projetId) {
         this.projetId = projetId;
     }
 
-    /***
+
+    /**
      *
-     * @param tags
+     * @param tags toutes les tags du billet en ArrayList
      */
-    public void setTags(List<Tag> tags) {
+    public void setTags(ArrayList<Tag> tags) {
         this.tags = tags;
     }
 
-    //méthode
-
-    /***
-     * ferme le billet met enCours a false
+    /**
+     * Ferme un billet (set le "estEnCours" à false)
      */
     public void fermer(){
         this.enCours = false;
     }
 
-    /***
-     * ouvre le billet met enCours a true
+    /**
+     * Ouvre le billet (set le "estEnCours" à true)
      */
     public void ouvrir(){
         this.enCours = true;
     }
 
+    /**
+     * ajoute le tag spécifié en paramètre à l'ArrayList "tags"
+     * @param tag Le tag a ajouter a l'ArrayList "tags"
+     */
     public void ajouterTag(Tag tag){
         tags.add(tag);
     }
@@ -182,6 +174,8 @@ public class Billet {
     /**
      * supprime une etiquette
      * @param tag
+     * retire le tag spécifié en paramètre de l'ArrayList "tags"
+     * @param tag Le tag a retirer de l'ArrayList "tags"
      */
     public void retirerTag(Tag tag){
         if(tag == null){

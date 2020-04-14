@@ -19,12 +19,21 @@ public class PrésenteurCréerBillet implements ContratVuePrésenteurCréerBille
 
     private int position;
 
+    /**
+     * Constructeur du presentateur pour le nouveau billet
+     * @param activité Activité dans laquelle le présenteur de billet sera placé
+     * @param vue La vue qui est relié au présenteur du billet
+     * @param modèle le modele du MVP
+     */
     public PrésenteurCréerBillet(Activity activité, ContratVuePrésenteurCréerBillet.IVueCréerBillet vue, Modèle modèle) {
         this.activité=activité;
         this.vue=vue;
         this.modèle=modèle;
     }
 
+    /**
+     * Termine l'ecran d'édition du billet
+     */
     @Override
     public void terminerÉdition() {
         Intent donnéesRetour=new Intent();
