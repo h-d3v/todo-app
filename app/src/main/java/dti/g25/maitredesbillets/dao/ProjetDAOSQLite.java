@@ -87,7 +87,7 @@ public class ProjetDAOSQLite  implements DAO<Projet> {
      */
     @Override
     public boolean supprimer() {
-
+        sqLiteDatabaseEcriture.delete(SQLiteDatabaseHandler.EntreesBillet.NOM_TABLE, SQLiteDatabaseHandler.EntreesBillet.NOM_COLONNE_PROJET_ID+"=?", new String[]{String.valueOf(id)});
         int nbSupp = sqLiteDatabaseEcriture.delete(SQLiteDatabaseHandler.EntreesProjet.NOM_TABLE, SQLiteDatabaseHandler.EntreesProjet.NOM_COLONNE_ID+" = ?",new String[]{String.valueOf(id)});
         return nbSupp >0;
     }
