@@ -1,9 +1,9 @@
 package dti.g25.maitredesbillets.domaine.entité;
 
-import androidx.annotation.NonNull;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Projet {
 
@@ -17,7 +17,7 @@ public class Projet {
     public Projet() {
         this.titre = "Test";
         this.id = 1;
-        this.billets=new ArrayList<>();
+        this.billets= new ArrayList<>();
     }
 
     /**
@@ -26,7 +26,7 @@ public class Projet {
      */
     public Projet(String titre) {
         this.titre = titre;
-        this.billets=new ArrayList<>();
+        this.billets= new ArrayList<>();
     }
 
     /**
@@ -91,10 +91,22 @@ public class Projet {
     /**
      * @return le toString, qui est le titre du projet
      */
-    @NonNull
     @Override
     public String toString() {
         return this.titre;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Projet projet = (Projet) o;
+
+        if (id != projet.id) return false;
+        if (!billets.equals( projet.billets)) return false;
+        return titre.equals(projet.titre);
     }
 
 

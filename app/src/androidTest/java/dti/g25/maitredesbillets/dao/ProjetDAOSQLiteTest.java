@@ -40,7 +40,7 @@ public class ProjetDAOSQLiteTest {
 
     @Test
     public void creer() {
-        assertEquals(projetDAOSQLiteCobaye.creer(projetCobaye).getTitre(), projetCobaye.getTitre());
+        assertEquals(projetDAOSQLiteCobaye.creer(projetCobaye), projetCobaye);
     }
 
     @Test
@@ -48,7 +48,7 @@ public class ProjetDAOSQLiteTest {
 
         ProjetDAOSQLite projetDAOSQLite2= new ProjetDAOSQLite(context);
         projetDAOSQLite2.creer(projetCobaye);
-        assertEquals(projetDAOSQLite2.lire().getTitre(),projetCobaye.getTitre());
+        assertEquals(projetDAOSQLite2.lire(),projetCobaye);
         assertEquals(projetDAOSQLite2.lire().getTitre(), "titre");
 
     }

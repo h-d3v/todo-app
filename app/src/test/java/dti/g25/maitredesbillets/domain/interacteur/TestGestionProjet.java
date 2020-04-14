@@ -12,8 +12,8 @@ import dti.g25.maitredesbillets.domaine.interacteur.GestionProjet;
 import static org.junit.Assert.assertEquals;
 
 public class TestGestionProjet {
-    Billet billetDeTest = new Billet("le Titre", "Une courte description", 1, 1);
-    Billet billetDeTest2 = new Billet("le Titre", "Une courte description", 2, 1);
+    Billet billetDeTest = new Billet("le Titre", "Une courte description",  1);
+    Billet billetDeTest2 = new Billet("le Titre", "Une courte description", 2);
     Projet projetTest=new Projet();
     GestionProjet gestionProjet= new GestionProjet();
 
