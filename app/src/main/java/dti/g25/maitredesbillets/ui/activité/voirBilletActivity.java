@@ -22,7 +22,7 @@ public class voirBilletActivity extends AppCompatActivity {
         Modèle modèle= new Modèle(this, new DAOFactorySQLite());
         VueVoirBillet vue=new VueVoirBillet();
 
-        int positionProjet = getIntent().getIntExtra("EXTRA_POSITION_PROJET", -1);
+        int positionProjet = getIntent().getIntExtra( "EXTRA_POSITION_PROJET", -1);
         présenteur=new PrésenteurVoirBillet(this, vue, modèle, positionProjet);
         vue.setPrésenteur(présenteur);
 

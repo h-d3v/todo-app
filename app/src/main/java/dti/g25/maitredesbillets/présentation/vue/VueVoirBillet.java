@@ -48,7 +48,6 @@ public class VueVoirBillet extends Fragment implements ContratVuePrésenteurVoir
                 présenteur.requêteCréerBillet();
             }
         });
-
         return vue;
     }
 

@@ -9,12 +9,11 @@ public interface ContratVuePrésenteurVoirBillet{
 
     public interface  IVueVoirBille{
         public void rafraîchir();
-
         void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction);
     }
 
     public interface  IPrésenteurVoirBillet{
-        public void requêteAfficherDétailBillet(int position);
+        void requêteVoirDescBillet(int positionBillet);
         public void requêteSupprimerBillet(int position);
         public void requêteModifierBillet(int position);
         public void requêteCréerBillet();
