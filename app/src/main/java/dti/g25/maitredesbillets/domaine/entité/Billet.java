@@ -13,7 +13,6 @@ public class Billet {
     private int projetId;
     private List<Tag> tags;
 
-
     public Billet() {
         this.titre = "";
         this.description = "";
@@ -35,6 +34,32 @@ public class Billet {
         this.tags=new ArrayList<>();
     }
 
+    /****
+     * Constructeur minimum
+     * @param titre
+     * @param description
+     * @param projetId
+     */
+    public Billet(String titre, String description, int projetId) {
+
+    }
+    /**
+     * Constructeur de billet complet
+     *
+     * @param titre Le nom du billet
+     * @param description La description detaillée  du billet
+     * @param ticketId le ID du ticket dans la base de données
+     * @param projetId le ID du projet dans la base de données
+     */
+    //Constructeur Complet
+    public Billet(String titre, String description, int ticketId, int projetId) {
+        this.titre = titre;
+        this.description = description;
+        this.enCours = true; //Un tickets sera toujours en cours juqu'à tant qu'il soit fermé
+        this.projetId = projetId;
+        this.tags=new ArrayList<>();
+        // Il n'est pas impératif que le billet aie des tags
+    }
 
     /***
      * /Constructeur complet
@@ -53,10 +78,6 @@ public class Billet {
         this.tags = tags;
     }
 
-    /***
-     *
-     * @return le titre du billet
-     */
 
     /**
      *
@@ -66,6 +87,7 @@ public class Billet {
         return titre;
     }
 
+
     /**
      *
      * @return Descritopn du billet en String
@@ -74,6 +96,7 @@ public class Billet {
         return description;
     }
 
+
     /**
      *
      * @return État du billet en Boléen
@@ -81,6 +104,7 @@ public class Billet {
     public boolean estEnCours() {
         return enCours;
     }
+
 
 
     /**
@@ -98,6 +122,7 @@ public class Billet {
     public List<Tag> getTags() {
         return tags;
     }
+
 
     /**
      *
@@ -142,14 +167,6 @@ public class Billet {
 
 
     /**
-     *
-     * @param tags toutes les tags du billet en ArrayList
-     */
-    public void setTags(ArrayList<Tag> tags) {
-        this.tags = tags;
-    }
-
-    /**
      * Ferme un billet (set le "estEnCours" à false)
      */
     public void fermer(){
@@ -172,8 +189,6 @@ public class Billet {
     }
 
     /**
-     * supprime une etiquette
-     * @param tag
      * retire le tag spécifié en paramètre de l'ArrayList "tags"
      * @param tag Le tag a retirer de l'ArrayList "tags"
      */

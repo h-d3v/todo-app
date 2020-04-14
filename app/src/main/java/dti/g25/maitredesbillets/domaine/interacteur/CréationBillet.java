@@ -5,7 +5,6 @@ import dti.g25.maitredesbillets.domaine.entité.Billet;
 public class CréationBillet {
 
 
-
     /**
      * Contructeur d'un objet Billet juste avec un titre et sa description
      * @param titre Nom du Billet en string
@@ -15,5 +14,5 @@ public class CréationBillet {
     public static Billet créerBillet(String titre, String description){
         return new Billet(titre, description);
     }
-    
+
 }
