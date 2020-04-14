@@ -28,10 +28,21 @@ public class VueVoirBillet extends Fragment implements ContratVuePrésenteurVoir
 	private BilletAdapter billetAdapter;
 	private ContratVuePrésenteurVoirBillet.IPrésenteurVoirBillet présenteur;
 
+    /**
+     *
+     * @param présenteur le présenteur de la vue
+     */
     public void setPrésenteur(ContratVuePrésenteurVoirBillet.IPrésenteurVoirBillet présenteur) {
         this.présenteur=présenteur;
     }
 
+    /**
+     * Crée la vue
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return la Vue
+     */
     @Override
     public View onCreateView (LayoutInflater inflater,
                               ViewGroup container,
@@ -52,6 +63,9 @@ public class VueVoirBillet extends Fragment implements ContratVuePrésenteurVoir
         return vue;
     }
 
+    /**
+     * Rafraichit la vue
+     */
     @Override
     public void rafraîchir() {
         if(billetAdapter!=null)
@@ -63,7 +77,9 @@ public class VueVoirBillet extends Fragment implements ContratVuePrésenteurVoir
 
     }
 
-    //cree le swipe gauche pour le rv
+    /**
+     * crée le swipe gauche pour le rv
+     */
     final ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT) {
 
         /**

@@ -14,7 +14,7 @@ public class PresenteurNewProjet implements ContratVuePresenteurNewProjet.IPrese
 
 
     /**
-     * extra our le titre du nouveau projet
+     * extra pour le titre du nouveau projet
      */
     public static final String EXTRA_TITRE_NEW_PROJET="dti.g25.maitre-des-tickets.titre_new_projet";
 
