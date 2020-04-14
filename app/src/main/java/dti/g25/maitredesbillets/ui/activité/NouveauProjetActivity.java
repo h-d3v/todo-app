@@ -20,7 +20,7 @@ public class NouveauProjetActivity extends AppCompatActivity {
     private PresenteurNewProjet _presenteur;
 
     /**
-     * Initialise la vue ainsi que le présenteur pour cette activité
+     * Initialise la vue ainsi que le présenteur pour l'activité création de projet
      * @param savedInstanceState
      */
     @Override

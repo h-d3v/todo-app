@@ -16,10 +16,22 @@ public class Modèle {
     Context context;
     DAOFactory daoFactory;
 
+    /**
+     * Ajouter le billet en paramètre au projet en paramètre à l'aide du DAO
+     * @param projetPosition le projet auquel sera ajouté le billet
+     * @param billet le billet qui sera ajouté au projet
+     */
     public void ajouterDAOBillet(int projetPosition, Billet billet){
         daoFactory.ajouterBilletAuProjet(context,getProjetDAOParPos(projetPosition), billet);
     }
 
+    /**
+     * Modifie les informations du billet (Insere un nouveau objet billet a la place exacte de son prédécesseur)
+     * @param positionProjet la position du projet contenant le billet à modifier
+     * @param positionBillet la position du billet à modifier
+     * @param titre le (nouveau) tire du billet
+     * @param description la (nouvelle) description du billet
+     */
     public void modifierBillets(int positionProjet, int positionBillet, String titre, String description){
         Billet billet =  CréationBillet.créerBillet(titre, description);
         if(positionBillet > -1){
@@ -35,14 +47,23 @@ public class Modèle {
         }
     }
 
+    /**
+     * Permet d'effacer un Billet pour un projet donné
+     * @param positionProjet la position du projet contenant le billet à retirer
+     * @param positionBillet la position du billet à retirer
+     */
     public void supprimerBillet(int positionProjet, int positionBillet){
         getProjetParPos(positionProjet).getBillets().remove(getProjetParPos(positionProjet).getBillets().get(positionBillet));
     }
 
+    /**
+     * Liste des billets pour un projet donné
+     * @param positionProjet l'emplacement d'un projet
+     * @return La lsite des Billets en format "List"
+     */
     public List<Billet> getBillets(int positionProjet){
         return getProjetParPos(positionProjet).getBillets();
     }
-
     public List<DAO<Billet>> getDAOBillets(int positionProjet){
         return daoFactory.creerListeDAOBilletParProjet(context, getProjetDAOParPos(positionProjet));
     }

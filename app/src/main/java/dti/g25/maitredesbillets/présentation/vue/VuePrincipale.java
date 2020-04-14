@@ -35,7 +35,7 @@ public class VuePrincipale extends Fragment implements ContratVuePresenteurPrinc
 
 
     /**
-     * rafraichis la vue
+     * Rafraichit la vue
      */
     @Override
     public void rafraichir() {
