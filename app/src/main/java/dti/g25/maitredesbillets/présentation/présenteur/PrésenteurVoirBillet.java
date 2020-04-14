@@ -79,7 +79,7 @@ public class PrésenteurVoirBillet implements ContratVuePrésenteurVoirBillet.IP
         activité.startActivityForResult(intentModif, REQUEST_CODE_AJOUTER_BILLET);
     }
 
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    public void onActivityResult(int requestCode, int resultCode, Intent data) throws  Exception{
 
         if (requestCode==REQUEST_CODE_AJOUTER_BILLET&&resultCode==Activity.RESULT_OK){
             String titreBillet=data.getStringExtra(EXTRA_TITRE_BILLET);

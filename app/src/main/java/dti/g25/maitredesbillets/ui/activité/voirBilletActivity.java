@@ -7,6 +7,8 @@ import androidx.fragment.app.FragmentTransaction;
 
 import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
+import android.widget.Toast;
+
 import dti.g25.maitredesbillets.R;
 import dti.g25.maitredesbillets.dao.DAOFactorySQLite;
 import dti.g25.maitredesbillets.présentation.modèle.Modèle;
@@ -33,6 +35,11 @@ public class voirBilletActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        présenteur.onActivityResult(requestCode, resultCode, data);
+        try {
+            présenteur.onActivityResult(requestCode, resultCode, data);
+        } catch (Exception e) {
+            Toast toast = Toast.makeText(getApplicationContext(), (CharSequence) e, Toast.LENGTH_LONG);
+            toast.show();
+        }
     }
 }

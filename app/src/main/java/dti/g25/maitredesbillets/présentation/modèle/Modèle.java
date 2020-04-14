@@ -20,7 +20,7 @@ public class Modèle {
         daoFactory.ajouterBilletAuProjet(context,getProjetDAOParPos(projetPosition), billet);
     }
 
-    public void modifierBillets(int positionProjet, int positionBillet, String titre, String description){
+    public void modifierBillets(int positionProjet, int positionBillet, String titre, String description) throws  Exception{
         Billet billet =  CréationBillet.créerBillet(titre, description);
         if(positionBillet > -1){
             getProjetParPos(positionProjet).getBillets().set(positionBillet, billet);
@@ -28,7 +28,7 @@ public class Modèle {
     }
 
 
-    public void modifierDAOBillets(int positionProjet, int positionBillet, String titre, String description){
+    public void modifierDAOBillets(int positionProjet, int positionBillet, String titre, String description) throws  Exception{
         Billet billet =  CréationBillet.créerBillet(titre, description);
         if(positionBillet > -1){
             getDAOBillets(positionProjet).get(positionBillet).modifier(billet);
