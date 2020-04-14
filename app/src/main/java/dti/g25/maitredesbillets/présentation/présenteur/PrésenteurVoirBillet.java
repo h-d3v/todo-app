@@ -44,7 +44,9 @@ public class PrésenteurVoirBillet implements ContratVuePrésenteurVoirBillet.IP
 
     @Override
     public void requêteSupprimerBillet(int position) {
-        modèle.supprimerBillet(positionProjet, position);
+        modèle.supprimerBillet(position);
+        modèle.rafraichir();
+        vue.rafraîchir();
     }
 
     @Override

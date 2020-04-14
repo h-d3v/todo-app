@@ -37,6 +37,7 @@ public class VueCréerBillet extends Fragment implements ContratVuePrésenteurCr
         txtTitreBillet=racine.findViewById(R.id.txtCréeationTitreBillet);
         txtDescriptionBillet=racine.findViewById(R.id.txtDescriptionCréeationBillet);
         btnCreerBillet = racine.findViewById(R.id.btnCreerBillet);
+        btnCreerBillet.setEnabled(false);
         txtTitreBillet.addTextChangedListener(billetTextWatcher);
         txtDescriptionBillet.addTextChangedListener(billetTextWatcher);
         btnCreerBillet.setOnClickListener(new View.OnClickListener() {
@@ -59,6 +60,8 @@ public class VueCréerBillet extends Fragment implements ContratVuePrésenteurCr
             if (getDescriptionBillet().trim().isEmpty() || getTitreBillet().trim().isEmpty()) {
                 btnCreerBillet.setEnabled(false);
             } else if (getTitreBillet().length() > 20) {
+                btnCreerBillet.setEnabled(false);
+            } else if (getTitreBillet().length() < 2) {
                 btnCreerBillet.setEnabled(false);
             } else {
                 btnCreerBillet.setEnabled(true);

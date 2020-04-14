@@ -35,8 +35,8 @@ public class Modèle {
         }
     }
 
-    public void supprimerBillet(int positionProjet, int positionBillet){
-        getProjetParPos(positionProjet).getBillets().remove(getProjetParPos(positionProjet).getBillets().get(positionBillet));
+    public void supprimerBillet(int positionBillet){
+        billets.get(positionBillet).supprimer();
     }
 
     public List<Billet> getBillets(int positionProjet){
@@ -87,6 +87,15 @@ public class Modèle {
      */
     public Projet getProjetParPos(int position){
         return projets.get(position).lire();
+    }
+
+
+    /**
+     * @param position la position du billet dans la liste bille
+     * @return le projet à la position passée en param
+     */
+    public Projet getBilletParPos(int positionProjet, int positionBillet){
+        return getProjetParPos(positionProjet);
     }
 
     public DAO<Projet> getProjetDAOParPos(int position){return projets.get(position);}

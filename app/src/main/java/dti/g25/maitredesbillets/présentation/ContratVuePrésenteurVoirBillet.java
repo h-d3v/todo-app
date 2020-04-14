@@ -9,8 +9,6 @@ public interface ContratVuePrésenteurVoirBillet{
 
     public interface  IVueVoirBille{
         public void rafraîchir();
-
-        void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction);
     }
 
     public interface  IPrésenteurVoirBillet{
