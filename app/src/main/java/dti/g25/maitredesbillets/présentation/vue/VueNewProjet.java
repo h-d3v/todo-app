@@ -51,7 +51,7 @@ public class VueNewProjet extends Fragment implements ContratVuePresenteurNewPro
     }
 
     /**
-     * @return le titre du nouveau projet entré parl'utilisateur
+     * @return le titre du nouveau projet entré par l'utilisateur
      */
     @Override
     public String getTitre() {

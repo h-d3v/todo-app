@@ -23,7 +23,7 @@ public interface ContratVuePrésenteurVoirBillet{
      * contrat du présenteur voir billet
      */
     public interface  IPrésenteurVoirBillet{
-        public void requêteAfficherDétailBillet(int position);
+        void requêteVoirDescBillet(int positionBillet);
         public void requêteSupprimerBillet(int position);
         public void requêteModifierBillet(int position);
         public void requêteCréerBillet();

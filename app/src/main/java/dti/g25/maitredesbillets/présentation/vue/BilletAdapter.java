@@ -32,12 +32,12 @@ public class BilletAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     @SuppressLint("WrongViewCast")
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
-//        ((ImageButton)holder.itemView.findViewById(R.id.btnVoirDétail)).setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View bouton){
-//                //présenteur.requêteAfficherDétailBillet(position);
-//            }
-//        });
+        (holder.itemView.findViewById(R.id.btnVoirDétail)).setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View bouton){
+               présenteur.requêteVoirDescBillet(position);
+            }
+        });
         ((TextView)holder.itemView.findViewById(R.id.txtTitreBillet)).setText(présenteur.getTitreBillet(position));
     }
 

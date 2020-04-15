@@ -2,21 +2,22 @@ package dti.g25.maitredesbillets.présentation.présenteur;
 
 import android.app.Activity;
 import android.content.Intent;
-import java.util.ArrayList;
 
 import dti.g25.maitredesbillets.domaine.entité.Billet;
 import dti.g25.maitredesbillets.domaine.interacteur.CréationBillet;
 import dti.g25.maitredesbillets.présentation.ContratVuePrésenteurVoirBillet;
 import dti.g25.maitredesbillets.présentation.modèle.Modèle;
+import dti.g25.maitredesbillets.ui.activité.VoirDescBilletActivity;
 import dti.g25.maitredesbillets.ui.activité.créerBilletActivity;
 
 public class PrésenteurVoirBillet implements ContratVuePrésenteurVoirBillet.IPrésenteurVoirBillet{
 
-    private static final String EXTRA_POSITION_BILLET = "dti.g25.maitredesbillets.positionBillet";
     private static final String EXTRA_DESCRIPTION_BILLET = "dti.g25.maitredesbillets.descriptionBillet";
     private static final String EXTRA_TITRE_BILLET = "dti.g25.maitredesbillets.titreBillet";
-    private static final String EXTRA_POSITION_PROJET = "dti.g25.maitredesbillets.positionProjet";
     private static final int REQUEST_CODE_AJOUTER_BILLET= 5;
+    private static final int REQUEST_CODE_VOIR_DESC_BILLET= 77;
+
+
 
     private ContratVuePrésenteurVoirBillet.IVueVoirBille vue;
     private Modèle modèle;
@@ -54,8 +55,11 @@ public class PrésenteurVoirBillet implements ContratVuePrésenteurVoirBillet.IP
      * @param position la positon du billet
      */
     @Override
-    public void requêteAfficherDétailBillet(int position) {
-
+    public void requêteVoirDescBillet(int positionBillet) {
+        Intent intentVoirDesc=new Intent(activité, VoirDescBilletActivity.class);
+        intentVoirDesc.putExtra("EXTRA_POSITION_BILLET", positionBillet);
+        intentVoirDesc.putExtra("EXTRA_POSITION_PROJET", positionProjet);
+        activité.startActivityForResult(intentVoirDesc, REQUEST_CODE_VOIR_DESC_BILLET);
     }
 
     /**

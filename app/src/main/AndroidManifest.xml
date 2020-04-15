@@ -21,9 +21,10 @@
         <activity android:name=".ui.activité.voirBilletActivity"
             android:parentActivityName="ui.activité.MainActivity"
             />
-        <activity android:name=".ui.activité.créerBilletActivity">
-        </activity>
+        <activity android:name=".ui.activité.créerBilletActivity"
+            android:parentActivityName="ui.activité.voirBilletActivity"/>
 
-
+        <activity android:name=".ui.activité.VoirDescBilletActivity"
+            android:parentActivityName="ui.activité.voirBilletActivity"/>
     </application>
 </manifest>
