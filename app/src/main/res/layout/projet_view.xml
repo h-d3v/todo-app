@@ -25,10 +25,9 @@
     <ImageButton
         android:id="@+id/btnAcceder"
         android:layout_width="93dp"
-        android:layout_height="match_parent"
+        android:layout_height="44dp"
         android:layout_weight="1"
         android:background="#49544A"
-        android:contentDescription="TODO"
         app:srcCompat="@drawable/ic_arrow_forward_black_24dp"
         tools:ignore="VectorDrawableCompat" />
 

@@ -1,7 +1,5 @@
 package dti.g25.maitredesbillets.domaine.interacteur;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 import dti.g25.maitredesbillets.domaine.entité.Billet;

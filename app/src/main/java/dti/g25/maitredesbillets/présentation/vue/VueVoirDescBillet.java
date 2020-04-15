@@ -36,6 +36,7 @@ public class VueVoirDescBillet extends Fragment implements ContratVuePresenteurV
         _tvDescBillet=racine.findViewById(R.id.tvDescBillet);
         _tvTitreBillet.setText(_presenteur.getTitreBillet());
         _tvDescBillet.setText(_presenteur.getDescBillet());
+        setRetainInstance(true);
         return racine;
     }
 }
