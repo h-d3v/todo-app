@@ -1,6 +1,9 @@
 package dti.g25.maitredesbillets.présentation.présenteur;
 
 import android.app.Activity;
+import android.content.Intent;
+
+
 import dti.g25.maitredesbillets.présentation.ContratVuePresenteurVoirDescBillet;
 import dti.g25.maitredesbillets.présentation.modèle.Modèle;
 
@@ -39,6 +42,8 @@ public class PresenteurVoirDescBillet implements ContratVuePresenteurVoirDescBil
         String desc=_modele.getDAOBillets(_positionProjet).get(_positionBillet).lire().getDescription();
         return desc;
     }
+
+
 
 
 }

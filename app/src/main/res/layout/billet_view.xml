@@ -1,20 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="#081018"
+    android:orientation="horizontal">
 
     <TextView
         android:id="@+id/txtTitreBillet"
-        android:layout_width="wrap_content"
-        android:layout_height="59dp"
-        android:layout_weight="1"
-        android:text="TextView" />
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_weight="5"
+        android:textColor="#BDA5DF"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:text="@string/textview" />
 
     <Button
         android:id="@+id/btnVoirDétail"
-        android:layout_width="3dp"
-        android:layout_height="match_parent"
+        android:layout_width="180dp"
+        android:layout_height="70dp"
         android:layout_weight="1"
-        android:text="Voir billet" />
+        android:maxWidth="25dp"
+        android:minWidth="25dp"
+        android:text="@string/voir_billet"
+        android:textColor="#FFFFFF" />
 </LinearLayout>

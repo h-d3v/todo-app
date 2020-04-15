@@ -27,5 +27,9 @@
     <string name="menu_slideshow">Slideshow</string>
 
     <string name="home_second">Home Second</string>
+    <string name="description_du_billet">Description du billet :</string>
+    <string name="titre_du_billet">Titre du billet :</string>
+    <string name="voir_billet">Voir billet</string>
+    <string name="textview">TextView</string>
 
 </resources>
