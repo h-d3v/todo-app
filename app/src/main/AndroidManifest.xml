@@ -25,6 +25,8 @@
             android:parentActivityName="ui.activité.voirBilletActivity"/>
 
         <activity android:name=".ui.activité.VoirDescBilletActivity"
-            android:parentActivityName="ui.activité.voirBilletActivity"/>
+            android:parentActivityName="ui.activité.voirBilletActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="singleTask" />/>
     </application>
 </manifest>
